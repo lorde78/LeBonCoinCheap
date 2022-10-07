@@ -18,8 +18,8 @@ class Tag
     #[ORM\Column(length: 255)]
     private ?string $text = null;
 
-    #[ORM\OneToMany(mappedBy: 'tag', targetEntity: Article::class)]
-    private Collection $idArticle;
+   // #[ORM\OneToMany(mappedBy: 'tag', targetEntity: Article::class)]
+ //   private Collection $idArticle;
 
     public function __construct()
     {

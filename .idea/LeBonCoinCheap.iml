@@ -63,6 +63,14 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/cache-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/twig/extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/doctrine-fixtures-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/doctrine/data-fixtures" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/property-info" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/zenstruck/foundry" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/zenstruck/callback" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/zenstruck/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/fakerphp/faker" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
