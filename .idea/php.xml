@@ -76,6 +76,9 @@
       <path value="$PROJECT_DIR$/src/vendor/zenstruck/callback" />
       <path value="$PROJECT_DIR$/src/vendor/zenstruck/assert" />
       <path value="$PROJECT_DIR$/src/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/src/vendor/stof/doctrine-extensions-bundle" />
+      <path value="$PROJECT_DIR$/src/vendor/gedmo/doctrine-extensions" />
+      <path value="$PROJECT_DIR$/src/vendor/behat/transliterator" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

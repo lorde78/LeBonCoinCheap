@@ -18,12 +18,15 @@ class Tag
     #[ORM\Column(length: 255)]
     private ?string $text = null;
 
-   // #[ORM\OneToMany(mappedBy: 'tag', targetEntity: Article::class)]
- //   private Collection $idArticle;
+    #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'tags')]
+    private Collection $idArticles;
+
+
 
     public function __construct()
     {
         $this->idArticle = new ArrayCollection();
+        $this->idArticles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -71,5 +74,13 @@ class Tag
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getIdArticles(): Collection
+    {
+        return $this->idArticles;
     }
 }

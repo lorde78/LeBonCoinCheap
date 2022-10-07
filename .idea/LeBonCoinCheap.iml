@@ -71,6 +71,9 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/zenstruck/callback" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/zenstruck/assert" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/stof/doctrine-extensions-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/gedmo/doctrine-extensions" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/behat/transliterator" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

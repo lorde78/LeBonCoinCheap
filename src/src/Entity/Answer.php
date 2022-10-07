@@ -4,77 +4,79 @@ namespace App\Entity;
 
 use App\Repository\AnswerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-#[ORM\Entity(repositoryClass: AnswerRepository::class)]
-class Answer
-{
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+#[ORM\Entity( repositoryClass: AnswerRepository::class )]
+class Answer {
+  use TimestampableEntity;
 
-    #[ORM\Column(length: 255)]
-    private ?string $title = null;
+  #[ORM\Id]
+  #[ORM\GeneratedValue]
+  #[ORM\Column]
+  private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $content = null;
+  #[ORM\Column( length: 255 )]
+  private ?string $title = null;
 
-    #[ORM\ManyToOne(inversedBy: 'answers')]
-    private ?User $idUser = null;
+  #[ORM\Column( length: 255 )]
+  private ?string $content = null;
 
-    #[ORM\ManyToOne(inversedBy: 'answers')]
-    private ?Question $idQuestion = null;
+  #[ORM\ManyToOne( inversedBy: 'answers' )]
+  private ?User $idUser = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+  #[ORM\ManyToOne( inversedBy: 'answers' )]
+  private ?Question $idQuestion = null;
 
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
+  public function getId()
+  : ?int {
+    return $this->id;
+  }
 
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
+  public function getTitle()
+  : ?string {
+    return $this->title;
+  }
 
-        return $this;
-    }
+  public function setTitle( string $title )
+  : self {
+    $this->title = $title;
 
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
+    return $this;
+  }
 
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
+  public function getContent()
+  : ?string {
+    return $this->content;
+  }
 
-        return $this;
-    }
+  public function setContent( string $content )
+  : self {
+    $this->content = $content;
 
-    public function getIdUser(): ?User
-    {
-        return $this->idUser;
-    }
+    return $this;
+  }
 
-    public function setIdUser(?User $idUser): self
-    {
-        $this->idUser = $idUser;
+  public function getIdUser()
+  : ?User {
+    return $this->idUser;
+  }
 
-        return $this;
-    }
+  public function setIdUser( ?User $idUser )
+  : self {
+    $this->idUser = $idUser;
 
-    public function getIdQuestion(): ?Question
-    {
-        return $this->idQuestion;
-    }
+    return $this;
+  }
 
-    public function setIdQuestion(?Question $idQuestion): self
-    {
-        $this->idQuestion = $idQuestion;
+  public function getIdQuestion()
+  : ?Question {
+    return $this->idQuestion;
+  }
 
-        return $this;
-    }
+  public function setIdQuestion( ?Question $idQuestion )
+  : self {
+    $this->idQuestion = $idQuestion;
+
+    return $this;
+  }
 }
