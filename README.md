@@ -53,3 +53,6 @@ Pour se connecter au BASH SYMFONY:
     docker exec -ti idImage bash
     cd html
 ````
+
+si jamais une entité pose probléme 
+composer dump-autoload
