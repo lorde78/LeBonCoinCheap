@@ -30,8 +30,7 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $avatar = null;
 
-    #[ORM\OneToMany(mappedBy: 'idUser', targetEntity: Article::class)]
-    private Collection $articles;
+
 
     #[ORM\OneToMany(mappedBy: 'idUser', targetEntity: Question::class)]
     private Collection $questions;
@@ -42,12 +41,15 @@ class User
     #[ORM\OneToMany(mappedBy: 'idUser', targetEntity: Vote::class)]
     private Collection $votes;
 
+    #[ORM\OneToMany(mappedBy: 'idUser', targetEntity: Article::class)]
+    private Collection $articles;
+
     public function __construct()
     {
-        $this->articles = new ArrayCollection();
         $this->questions = new ArrayCollection();
         $this->answers = new ArrayCollection();
         $this->votes = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
 

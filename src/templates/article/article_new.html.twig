@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'dddddddddd' }}{% endblock %}
+
+{% block body %}
+    <div class="col">
+        <form action="{{path('app_article_new_api')}}" method="POST">
+
+        <label for="Atitle">Title</label>
+        <input type="text" id="Atitle" name="Atitle">
+        <label for="Adescription">Description</label>
+        <input type="text" id="Adescription" name="Adescription">
+        <input type="submit" value="Publish an ad">
+        </form>
+    </div>
+{% endblock %}

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -23,6 +24,21 @@ class Article
 
     #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'idArticles')]
     private Collection $tags;
+
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    private ?User $idUser = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
+
+    #[ORM\Column]
+    private ?int $price = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $description = null;
+
+    #[ORM\Column(type: Types::ARRAY)]
+    private array $pictures = [];
 
     public function __construct()
     {
@@ -88,6 +104,66 @@ class Article
         if ($this->tags->removeElement($tag)) {
             $tag->removeIdArticle($this);
         }
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPictures(): array
+    {
+        return $this->pictures;
+    }
+
+    public function setPictures(array $pictures): self
+    {
+        $this->pictures = $pictures;
 
         return $this;
     }

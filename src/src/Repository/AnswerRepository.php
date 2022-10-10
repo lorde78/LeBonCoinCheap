@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Answer;
+use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -38,6 +39,19 @@ class AnswerRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+  /**
+   * @return Answer[] Returns an array of Answer by idQuestion objects
+   */
+  public function findByIdQuestion( $id )
+  : array {
+    return $this->createQueryBuilder( 'ans' )
+                ->andWhere( 'ans.idQuestion = :val' )
+                ->setParameter( 'val', $id )
+                ->orderBy( 'ans.id', 'ASC' )
+                ->getQuery()
+                ->getResult();
+  }
 
 //    /**
 //     * @return Answer[] Returns an array of Answer objects

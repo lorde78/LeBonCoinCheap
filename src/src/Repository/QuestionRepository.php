@@ -39,6 +39,21 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
+
+
+  /**
+   * @return Question[] Returns an array of Question by idArticle objects
+   */
+  public function findByIdArticle( $id )
+  : array {
+    return $this->createQueryBuilder( 'q' )
+                ->andWhere( 'q.idArticle = :val' )
+                ->setParameter( 'val', $id )
+                ->orderBy( 'q.id', 'ASC' )
+                ->getQuery()
+                ->getResult();
+  }
+
 //    /**
 //     * @return Question[] Returns an array of Question objects
 //     */
