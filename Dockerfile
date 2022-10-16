@@ -13,3 +13,4 @@ RUN pecl install apcu && docker-php-ext-enable apcu
 WORKDIR /var/www
 
 CMD nginx && php-fpm
+
