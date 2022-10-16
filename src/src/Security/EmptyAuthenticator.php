@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 
 class EmptyAuthenticator extends AbstractAuthenticator
@@ -22,17 +24,28 @@ class EmptyAuthenticator extends AbstractAuthenticator
     {
         // TODO: Implement authenticate() method.
 
-      dd("Hello Auth!");
+
+      $email = $request->request->get('email');
+      $password = $request->request->get('password');
+
+      return new Passport(
+          new UserBadge($email),
+          new PasswordCredentials($password)
+      );
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         // TODO: Implement onAuthenticationSuccess() method.
+
+      return RedirectResponse('/login');
+
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         // TODO: Implement onAuthenticationFailure() method.
+      dd($request);
     }
 
 //    public function start(Request $request, AuthenticationException $authException = null): Response
