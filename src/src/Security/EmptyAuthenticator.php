@@ -49,7 +49,7 @@ class EmptyAuthenticator extends AbstractAuthenticator {
         ]
     );
   }
-
+//testt
   public function onAuthenticationSuccess( Request $request, TokenInterface $token, string $firewallName )
   : ?Response {
     // TODO: Implement onAuthenticationSuccess() method.
