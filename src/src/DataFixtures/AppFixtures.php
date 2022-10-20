@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Factory\AnswerFactory;
 use App\Factory\ArticleFactory;
 use App\Factory\QuestionFactory;
+use App\Factory\TagFactory;
 use App\Factory\UserFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -14,6 +15,7 @@ use function Zenstruck\Foundry\factory;
 class AppFixtures extends Fixture {
   public function load( ObjectManager $manager )
   : void {
+
 
 
     UserFactory::createMany( 10 );
