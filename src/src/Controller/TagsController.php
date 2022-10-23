@@ -18,15 +18,16 @@ class TagsController extends AbstractController {
     ] );
   }
 
-#[Route( '/acceuil', name: 'app_tags_all' )]
-public function getAllTags(
-    EntityManagerInterface $entityManager
-): Response {
-  $repository = $entityManager->getRepository( Tag::class );
-  $tags   = $repository->findAll();
+  #[Route( '/', name: 'app_tags_all' )]
+  public function getAllTags(
+      EntityManagerInterface $entityManager
+  )
+  : Response {
+    $repository = $entityManager->getRepository( Tag::class );
+    $tags       = $repository->findAll();
 
-  return $this->render( 'acceuil.html.twig', [
-      'tags' => $tags,
-  ] );
-}
+    return $this->render( 'test/test.html.twig', [
+        'tags' => 'testtttt',
+    ] );
+  }
 }

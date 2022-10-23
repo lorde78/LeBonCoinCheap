@@ -1,3 +1,7 @@
 controllers:
-    resource: ../src/Controller/
-    type: attribute
+  resource: ../src/Controller/
+  type: attribute
+my_route_name:
+  path:      /acceuil
+  defaults:
+    _controller: NamespaceBlogBundle:Home:index

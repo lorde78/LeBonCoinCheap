@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acceuil{% endblock %}
+
+{% block body %}
+        <ul>
+            {% for tag in tags %}
+                <li>{{ tag.name|e }}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
