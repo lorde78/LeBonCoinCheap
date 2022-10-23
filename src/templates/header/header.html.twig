@@ -1,6 +1,11 @@
 {# {% extends 'index.html.twig' %} #}
 
-{% block div %}
-		
-        <p>blabla</p>
+{% block section %}
+	<header>
+		<a href=""><img class="header_logo" src="{{asset('images/logo_transparent.png')}}" alt=""></a>
+                <div class="rechercher">
+                        <img src="{{asset('images/loupe.png')}}" alt="">
+                        <input type="text">
+                </div>
+	</header>
 {% endblock %}

@@ -1,3 +1,24 @@
+body{
+    width: 1440px;
+    margin: auto;
+}
+
 p {
     color:red !important;
+}
+
+header{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.header_logo{
+    width: 140px;
+    height: 140px;
+}
+
+.rechercher input{
+    border: 2px solid #4191AB;
 }
