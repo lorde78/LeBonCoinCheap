@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,16 +46,24 @@ class ArticleController extends AbstractController {
     ] );
   }
 
-  #[Route( '/articles/new', name: 'app_article_new' )]
-  public function new()
+  #[Route( '/new_article', name: 'app_new_article' )]
+  public function new(
+      EntityManagerInterface $entityManager,
+      Request $request
+  )
   : Response {
-    return $this->render( 'article/article_new.html.twig' );
-  }
 
-  #[Route( '/articles/new_api', name: 'app_article_new_api' )]
-  public function newApi( Request $request): Response
-   {
-    $dd = "d";
-    dd($request);
+    $form = $this->createForm( ArticleType::class );
+    $form->handleRequest( $request );
+    if ( $form->isValid() && $form->isSubmitted() ) {
+      $newArticle = $form->getData();
+      $entityManager->persist( $newArticle );
+      $entityManager->flush();
+
+    }
+
+    return $this->render( 'article/article_new.html.twig', [
+        'articleForm' => $form->createView(),
+    ] );
   }
 }

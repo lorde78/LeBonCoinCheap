@@ -16,12 +16,12 @@ class AppFixtures extends Fixture {
   public function load( ObjectManager $manager )
   : void {
 
-
-
+    TagFactory::createMany( 10 );
     UserFactory::createMany( 10 );
     ArticleFactory::createMany( 10, function () {
       return [
           'idUser' => UserFactory::random(),
+          'idTag'  => TagFactory::random(),
       ];
     } );
     QuestionFactory::createMany( 10, function () {

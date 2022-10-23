@@ -22,8 +22,7 @@ class Article
     #[ORM\OneToMany(mappedBy: 'idArticle', targetEntity: Question::class)]
     private Collection $questions;
 
-    #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'idArticles')]
-    private Collection $tags;
+
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?User $idUser = null;
@@ -40,10 +39,12 @@ class Article
     #[ORM\Column(type: Types::ARRAY)]
     private array $pictures = [];
 
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    private ?Tag $idTag = null;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
-        $this->tags = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -81,32 +82,6 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection<int, Tag>
-     */
-    public function getTags(): Collection
-    {
-        return $this->tags;
-    }
-
-    public function addTag(Tag $tag): self
-    {
-        if (!$this->tags->contains($tag)) {
-            $this->tags->add($tag);
-            $tag->addIdArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTag(Tag $tag): self
-    {
-        if ($this->tags->removeElement($tag)) {
-            $tag->removeIdArticle($this);
-        }
-
-        return $this;
-    }
 
     public function getIdUser(): ?User
     {
@@ -164,6 +139,18 @@ class Article
     public function setPictures(array $pictures): self
     {
         $this->pictures = $pictures;
+
+        return $this;
+    }
+
+    public function getIdTag(): ?Tag
+    {
+        return $this->idTag;
+    }
+
+    public function setIdTag(?Tag $idTag): self
+    {
+        $this->idTag = $idTag;
 
         return $this;
     }

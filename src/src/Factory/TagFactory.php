@@ -36,24 +36,26 @@ final class TagFactory extends ModelFactory {
 
   protected function getDefaults()
   : array {
-    return [
 
+    $tags = array(
+        'Emploi',
+        'Services',
+        'Divers',
+        'Véhicules',
+        'Immobilier',
+        'Mode',
+        'Maison',
+        'Multimédia',
+        'Loisirs',
+        'Animaux',
+    );
+
+    return array(
       // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
-        'text' => self::faker()->randomElements( $array = array(
-            'Emploi',
-            'Services',
-            'Divers',
-            'Véhicules',
-            'Immobilier',
-            'Mode',
-            'Mode',
-            'Maison',
-            'Multimédia',
-            'Loisirs',
-            'Animaux',
-            'Matériel Professionnel',
-        ), $count = 1 )
-    ];
+
+        'name ' => self::faker()->word( ),
+    );
+
   }
 
   protected function initialize()

@@ -53,6 +53,22 @@ class ArticleRepository extends ServiceEntityRepository {
 
 
 
+  /**
+   * @return Article[] Returns an array of Article by idTag objects
+   */
+  public function findByIdTag( $id )
+  : array {
+    return $this->createQueryBuilder( 'a' )
+                ->andWhere( 'a.idTag = :val' )
+                ->setParameter( 'val', $id )
+                ->orderBy( 'a.id', 'ASC' )
+                ->setMaxResults( 10 )
+                ->getQuery()
+                ->getResult();
+  }
+
+
+
 ///    /**
 //     * @return Article[] Returns an array of Article objects
 //     */

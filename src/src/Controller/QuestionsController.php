@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Question;
+use App\Form\QuestionFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,16 @@ class QuestionsController extends AbstractController {
     return $this->render( 'questions/index.html.twig', [
         'controller_name' => 'QuestionsController',
     ] );
+  }
+
+
+
+  public function new(): Response
+  {
+    $form =$this->createForm(QuestionFormType::class);
+    return $this->render('question/new.html.twig', [
+        'questionForm' =>$form->createView()
+    ]);
   }
 
   #[Route( '/question/{IdArticle}', name: 'app_question_by_id' )]

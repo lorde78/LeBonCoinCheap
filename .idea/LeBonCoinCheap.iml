@@ -79,6 +79,10 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/security-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/password-hasher" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/security-http" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/form" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-intl-icu" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/validator" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

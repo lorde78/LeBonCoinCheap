@@ -16,17 +16,14 @@ class Tag
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $text = null;
+    private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'tags')]
-    private Collection $idArticles;
-
-
+    #[ORM\OneToMany(mappedBy: 'idTag', targetEntity: Article::class)]
+    private Collection $articles;
 
     public function __construct()
     {
-        $this->idArticle = new ArrayCollection();
-        $this->idArticles = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -34,14 +31,14 @@ class Tag
         return $this->id;
     }
 
-    public function getText(): ?string
+    public function getName(): ?string
     {
-        return $this->text;
+        return $this->name;
     }
 
-    public function setText(string $text): self
+    public function setName(string $name): self
     {
-        $this->text = $text;
+        $this->name = $name;
 
         return $this;
     }
@@ -49,38 +46,30 @@ class Tag
     /**
      * @return Collection<int, Article>
      */
-    public function getIdArticle(): Collection
+    public function getArticles(): Collection
     {
-        return $this->idArticle;
+        return $this->articles;
     }
 
-    public function addIdArticle(Article $idArticle): self
+    public function addArticle(Article $article): self
     {
-        if (!$this->idArticle->contains($idArticle)) {
-            $this->idArticle->add($idArticle);
-            $idArticle->setTag($this);
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->setIdTag($this);
         }
 
         return $this;
     }
 
-    public function removeIdArticle(Article $idArticle): self
+    public function removeArticle(Article $article): self
     {
-        if ($this->idArticle->removeElement($idArticle)) {
+        if ($this->articles->removeElement($article)) {
             // set the owning side to null (unless already changed)
-            if ($idArticle->getTag() === $this) {
-                $idArticle->setTag(null);
+            if ($article->getIdTag() === $this) {
+                $article->setIdTag(null);
             }
         }
 
         return $this;
-    }
-
-    /**
-     * @return Collection<int, Article>
-     */
-    public function getIdArticles(): Collection
-    {
-        return $this->idArticles;
     }
 }
