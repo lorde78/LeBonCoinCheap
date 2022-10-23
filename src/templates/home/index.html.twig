@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}Homepage{% endblock %}
 
 {% block body %}
+{{ include('header/header.html.twig') }}
         <ul>
             {% for tag in tags %}
                 <li>{{ tag.name|e }}</li>
