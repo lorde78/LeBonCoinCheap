@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use mysql_xdevapi\Collection;
 
 /**
  * @extends ServiceEntityRepository<Article>
@@ -18,6 +19,13 @@ class ArticleRepository extends ServiceEntityRepository {
   public function __construct( ManagerRegistry $registry ) {
     parent::__construct( $registry, Article::class );
   }
+
+  //private static function createApprovedCriteria() : Collection {
+
+  // return $this->article->filter(function(Article $article) {
+  //  return $article->isApproved();
+  //});
+  //}
 
   public function save( Article $entity, bool $flush = false )
   : void {
@@ -52,7 +60,6 @@ class ArticleRepository extends ServiceEntityRepository {
   }
 
 
-
   /**
    * @return Article[] Returns an array of Article by idTag objects
    */
@@ -65,6 +72,53 @@ class ArticleRepository extends ServiceEntityRepository {
                 ->setMaxResults( 10 )
                 ->getQuery()
                 ->getResult();
+  }
+
+  /**
+   * @return Article[] Returns an array of Article by idTag objects
+   */
+  public function findByIdTagAndByIdArticle( $idArticle )
+  : array {
+    return $this->createQueryBuilder( 'a' )
+                ->andWhere( 'a.id = :valIdArticle' )
+                ->setParameter( 'valIdArticle', $idArticle )
+                ->orderBy( 'a.id', 'ASC' )
+                ->setMaxResults( 10 )
+                ->getQuery()
+                ->getResult();
+  }
+
+  /**
+   * @return Article[] Returns an array of Article by name objects
+   */
+  public function findArticlesByName( string $search = null, int $max = 12 )
+  : array {
+    $queryBuilder = $this->createQueryBuilder( 'article' )
+        //->addCriteria( self::createApprovedCriteria() )
+                         ->innerJoin( 'article.idUser', 'user' )
+                         ->addSelect( 'user' );
+
+
+    if ( $search !== null ) {
+      $queryBuilder
+          ->innerJoin( 'article.idTag', 'tag' )
+          ->addSelect( 'tag' )
+          ->orWhere( 'tag.name LIKE :searchTerm' )
+          ->orWhere( 'article.title LIKE :searchTerm' )
+          ->orWhere( 'article.description LIKE :searchTerm' )
+          ->setParameter( 'searchTerm', '%' . $search . '%' );
+    }
+
+
+
+
+
+    return $queryBuilder
+
+
+        ->setMaxResults( $max )
+        ->getQuery()
+        ->getResult();
   }
 
 

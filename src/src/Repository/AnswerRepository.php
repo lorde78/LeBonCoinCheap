@@ -40,18 +40,11 @@ class AnswerRepository extends ServiceEntityRepository
         }
     }
 
-  /**
-   * @return Answer[] Returns an array of Answer by idQuestion objects
-   */
-  public function findByIdQuestion( $id )
-  : array {
-    return $this->createQueryBuilder( 'ans' )
-                ->andWhere( 'ans.idQuestion = :val' )
-                ->setParameter( 'val', $id )
-                ->orderBy( 'ans.id', 'ASC' )
-                ->getQuery()
-                ->getResult();
-  }
+
+
+
+
+  // SELECT * FROM `answer` INNER JOIN question ON answer.id_question_id = question.id;
 
 //    /**
 //     * @return Answer[] Returns an array of Answer objects

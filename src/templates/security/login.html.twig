@@ -2,11 +2,16 @@
 
 {% block body %}
 
-    <form method="post" >
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <form method="post">
         <input class="form-control" name="email" placeholder="Email">
         <input class="form-control" name="password" placeholder="Password">
 
         <input type="hidden" name="csrf" value="{{ csrf_token('login_form') }}">
         <input type="submit" name="Login">
     </form>
-{% endblock  %}
+{% endblock %}
