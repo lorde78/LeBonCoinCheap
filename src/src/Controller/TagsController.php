@@ -30,4 +30,22 @@ class TagsController extends AbstractController {
         'tags' => 'testtttt',
     ] );
   }
+
+  #[Route( '/{tags}', name: 'app_articles_by_tag' )]
+  public function getArticlesByTags( $tags,
+      EntityManagerInterface $entityManager
+  )
+  : Response {
+    $repository = $entityManager->getRepository( Tag::class );
+    $tag        = $repository->findTagByName($tags);
+
+    $repositoryArticle = $entityManager->getRepository(Article::class);
+    $articles = $repositoryArticle->findByIdTag($tag);
+
+
+
+    return $this->render( 'tags/archive_tags.html.twig', [
+        $articles => $articles,
+    ] );
+  }
 }

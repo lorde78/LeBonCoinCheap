@@ -18,15 +18,13 @@ class Question {
   private ?int $id = null;
 
   #[ORM\Column( length: 255 )]
-  private ?string $title = null;
+  private ?string $question = null;
 
-  #[ORM\Column( length: 255 )]
-  private ?string $content = null;
 
   #[ORM\ManyToOne( inversedBy: 'questions' )]
   private ?User $idUser = null;
 
-  #[ORM\OneToMany( mappedBy: 'idQuestion', targetEntity: Answer::class )]
+  #[ORM\OneToMany( mappedBy: 'idQuestion', targetEntity: Answer::class  )]
   private Collection $answers;
 
   #[ORM\ManyToOne(inversedBy: 'questions')]
@@ -41,26 +39,15 @@ class Question {
     return $this->id;
   }
 
-  public function getTitle()
+
+  public function getQuestion()
   : ?string {
-    return $this->title;
+    return $this->question;
   }
 
-  public function setTitle( string $title )
+  public function setQuestion( string $question )
   : self {
-    $this->title = $title;
-
-    return $this;
-  }
-
-  public function getContent()
-  : ?string {
-    return $this->content;
-  }
-
-  public function setContent( string $content )
-  : self {
-    $this->content = $content;
+    $this->question = $question;
 
     return $this;
   }

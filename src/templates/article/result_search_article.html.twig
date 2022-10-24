@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<form action="{{ path('app_handle_search') }}">
+    <input
+    type="search"
+    name="q"
+    placeholder="Rechercher"
+    class="from-control"
+    >
+</form>
+
+{% endblock  %}

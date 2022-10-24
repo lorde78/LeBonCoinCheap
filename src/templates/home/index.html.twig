@@ -3,6 +3,11 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block body %}
+        {% for message in app.flashes('success login') %}
+        <div class="alert alert-success">
+                {{ message }}
+        </div>
+
         <ul>
             {% for tag in tags %}
                 <li>{{ tag.name|e }}</li>

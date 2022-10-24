@@ -38,8 +38,7 @@ final class QuestionFactory extends ModelFactory {
   : array {
     return [
       // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
-        'title'      => self::faker()->title(),
-        'content'    => self::faker()->text(),
+        'question'      => self::faker()->text(100),
         'created_at' => self::faker()->dateTime( '-1 year' ),
         'updated_at' => self::faker()->dateTime(),
 

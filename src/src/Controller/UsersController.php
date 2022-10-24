@@ -43,6 +43,8 @@ class UsersController extends AbstractController {
       $entityManager->persist( $newUser );
       $entityManager->flush();
 
+      $this->addFlash('success', 'Inscription réussie , bienvenue ! :)');
+
       return $authenticator->authenticateUser(
           $newUser,
           $loginFormAuthenticator,

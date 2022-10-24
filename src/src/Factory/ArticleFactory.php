@@ -44,7 +44,7 @@ final class ArticleFactory extends ModelFactory {
         'price'       => self::faker()->numberBetween( '1', '10' ),
         'pictures'    => [ self::faker()->imageUrl() ],
         'description' => self::faker()->realText(),
-        'title'       => self::faker()->realText(),
+        'title'       => self::faker()->realText(25),
     ];
   }
 
