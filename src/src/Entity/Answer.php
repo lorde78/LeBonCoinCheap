@@ -16,10 +16,8 @@ class Answer {
   private ?int $id = null;
 
   #[ORM\Column( length: 255 )]
-  private ?string $title = null;
+  private ?string $answer = null;
 
-  #[ORM\Column( length: 255 )]
-  private ?string $content = null;
 
   #[ORM\ManyToOne( inversedBy: 'answers' )]
   private ?User $idUser = null;
@@ -44,14 +42,14 @@ class Answer {
     return $this;
   }
 
-  public function getContent()
+  public function getAnswer()
   : ?string {
-    return $this->content;
+    return $this->answer;
   }
 
-  public function setContent( string $content )
+  public function setAnswer( string $answer )
   : self {
-    $this->content = $content;
+    $this->answer = $answer;
 
     return $this;
   }

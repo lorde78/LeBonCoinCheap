@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Answer;
 use App\Entity\Article;
+use App\Entity\Question;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManager;
@@ -43,6 +45,32 @@ class ArticleController extends AbstractController {
     return $this->render( 'article/index.html.twig', [
         'title'    => 'eeeeeeeeeee',
         'articles' => $articles,
+    ] );
+  }
+
+
+  #[Route( '/articles/{tag}/{idArticle}', name: 'app_articles_by_idArticle' )]
+  public function findByIdTagAndByIdArticle( EntityManagerInterface $entityManager, $idArticle ) {
+    $repository = $entityManager->getRepository( Article::class );
+    $article   = $repository->find(  $idArticle );
+
+    $repository = $entityManager->getRepository( Question::class );
+    $questions  = $repository->findByIdArticleJoinAnswer( $idArticle );
+
+    //$repository = $entityManager->getRepository( Answer::class );
+    //$answer  = $repository->findByIdQuestion( $questions );
+
+    $list_question = [];
+
+      $repository = $entityManager->getRepository( Answer::class );
+      $answer  = $repository->findByIdQuestion( $questions );
+
+
+
+    dd($questions, $article);
+    return $this->render( 'article/single.html.twig', [
+        'articles' => $article,
+        'questions' => $questions
     ] );
   }
 

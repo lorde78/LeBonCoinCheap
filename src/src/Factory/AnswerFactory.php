@@ -40,8 +40,7 @@ final class AnswerFactory extends ModelFactory
     {
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
-            'title' => self::faker()->text(),
-            'content' => self::faker()->text(),
+            'answer' => self::faker()->text(),
             'created_at' => self::faker()->dateTimeBetween( '-1 year' ),
             'updated_at' => self::faker()->dateTimeBetween( ),
         ];
