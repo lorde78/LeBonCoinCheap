@@ -1,12 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Homepage{% endblock %}
+{% block title %}Homepage
+{% endblock %}
 
 {% block body %}
-{{ include('header/header.html.twig') }}
-        <ul>
-            {% for tag in tags %}
-                <li>{{ tag.name|e }}</li>
-            {% endfor %}
-        </ul>
+	{{ include('header/header.html.twig') }}
+	{{ include('navbar/navbar.html.twig') }}
 {% endblock %}

@@ -1,0 +1,9 @@
+{% block navbar %}
+	<div class="navbar_wrapper">
+		<ul class="navbar">
+			{% for tag in tags %}
+				<li><a href="/{{ tag.name|e }}">{{ tag.name|e }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
