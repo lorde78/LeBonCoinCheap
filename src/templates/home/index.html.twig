@@ -7,9 +7,11 @@
 
 	{{ include('header/header.html.twig') }}
 	{{ include('navbar/navbar.html.twig') }}
-    {{ include('hero/hero.html.twig') }}
+        {{ include('hero/hero.html.twig') }}
+        {{ include('populaire/populaire.html.twig') }}
         {% for message in app.flashes('success login') %}
         <div class="alert alert-success">
                 {{ message }}
         </div>
+        {% endfor %}
 {% endblock %}

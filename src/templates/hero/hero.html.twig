@@ -1,18 +1,20 @@
 {% block section %}
 	<section class="hero">
 		<div class="hero_card">
-			<h1>The safe corner</h1>
+			<div class="hero_card_title">
+				<img src="{{asset('images/beforetitle.png')}}" alt="">
+				<h1>The safe corner</h1>
+			</div>
+
 			<span>Des millions de petites annonces et autant d’occasions à se faire plaisir en toute sécurité.</span>
 			<div class="header_main_cta_block">
 				<a class="main_cta" href="">Déposer une annonce</a>
 				<a class="main_cta" href="">Rechercher</a>
 			</div>
 		</div>
-		<div class="hero_images">
-			<div class="hero_image_fake"><img src="" alt=""></div>
-			<div><img src="{{asset('images/first_hero_img.png')}}" alt=""></div>
-			<div><img src="{{asset('images/second_hero_img.png')}}" alt=""></div>
-			<div><img src="{{asset('images/third_hero_img.png')}}" alt=""></div>
-		</div>
+		<div class="one"><img src="{{asset('images/first_hero_img.png')}}" alt=""></div>
+		<div class="two"><img src="{{asset('images/second_hero_img.png')}}" alt=""></div>
+		<div class="three"><img src="{{asset('images/third_hero_img.png')}}" alt=""></div>
+
 	</section>
 {% endblock %}
