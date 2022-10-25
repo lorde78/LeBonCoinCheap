@@ -212,7 +212,6 @@ input[type="text"]::placeholder {
 
 .produit_card_list {
 	padding: 0;
-	margin: 0 70px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
 	grid-gap: 1.5rem;
@@ -222,6 +221,8 @@ input[type="text"]::placeholder {
 
 .produit_card_wrapper {
 	width: 300px;
+	position: relative;
+	list-style-type: none;
 }
 
 .produit_card_detail {
@@ -240,10 +241,6 @@ input[type="text"]::placeholder {
 	object-fit: cover;
 }
 
-.produit_card_wrapper {
-	list-style-type: none;
-}
-
 .btn_read_more {
 	text-decoration: none;
 	color: #4191ab !important;
@@ -260,11 +257,15 @@ input[type="text"]::placeholder {
 	height: 15px;
 	background-repeat: no-repeat;
 	margin-left: 10px;
-	top: 50%;
+	top: 45%;
 	transition-duration: 0.3s;
 	background-position: 0% 0%;
 	content: "";
 	transform: translateY(-50%);
+}
+
+.btn_read_more span:hover::after {
+	transform: translate(5px, -50%);
 }
 
 .btn_read_more span {
@@ -273,6 +274,13 @@ input[type="text"]::placeholder {
 }
 
 /* section populaire */
+.section_populaire_wrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 0 70px;
+	border-bottom: 1px solid #f5bf42;
+	padding-bottom: 50px;
+}
 
 .section_populaire_title h2 {
 	margin-bottom: 0px;
@@ -283,14 +291,69 @@ input[type="text"]::placeholder {
 	color: #245471;
 }
 
-.section_populaire_title img{
+.section_populaire_title img {
 	width: 28px;
 	height: 28px;
 }
 
-.section_populaire_title{
+.section_populaire_title {
 	display: flex;
 	margin-bottom: 60px;
 	margin-top: 60px;
+	justify-content: center;
 }
 
+.produit_card_tag {
+	padding: 6px 25px 6px 25px;
+	background-color: #f5bf42;
+	color: #4191ab;
+	position: absolute;
+	top: 38%;
+	transform: translate(50%, 50%);
+	left: 45%;
+}
+
+/* footer */
+footer {
+	width: 100%;
+	display: flex;
+	align-content: stretch;
+	justify-content: space-evenly;
+	padding: 50px 0;
+}
+
+footer h3{
+	color: #245471;
+	font-size: 22px;
+}
+
+.footer_socials_wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.footer_socials_icons {
+	justify-content: center;
+    display: flex;
+}
+
+.footer_socials_icons img {
+	width: 30px;
+}
+
+.footer_socials_first,
+.footer_socials_second,
+.footer_socials_third,
+.footer_socials_fourth {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	
+}
+
+a{
+	color: #4191AB;
+	text-decoration: none;
+	font-size: 18px;
+}
