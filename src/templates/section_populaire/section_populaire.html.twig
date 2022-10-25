@@ -1,6 +1,12 @@
 {% block section %}
-	<h2>Articles populaires</h2>
+	<section>
+		<div class="section_populaire_title">
+			<img src="{{asset('images/beforetitle.png')}}" alt="">
+			<h2>Articles populaires</h2>
+		</div>
 
-	{{ include('populaire/populaire.html.twig') }}
+		{{ include('populaire/populaire.html.twig') }}
+	</section>
+
 
 {% endblock %}
