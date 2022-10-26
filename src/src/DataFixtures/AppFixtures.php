@@ -24,7 +24,7 @@ class AppFixtures extends Fixture {
           'idTag'  => TagFactory::random(),
       ];
     } );
-    QuestionFactory::createMany( 7, function () {
+    QuestionFactory::createMany( 20, function () {
       return [
           'idUser'    => UserFactory::random(),
           'idArticle' => ArticleFactory::random(),
