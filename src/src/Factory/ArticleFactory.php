@@ -45,7 +45,6 @@ final class ArticleFactory extends ModelFactory {
         'pictures'    => [ self::faker()->imageUrl() ],
         'description' => self::faker()->realText(),
         'title'       => self::faker()->realText(25),
-        'logVote'    => rand( 0, 6 ),
     ];
   }
 

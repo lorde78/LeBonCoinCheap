@@ -2,6 +2,16 @@
 
 
 {% block content %}
+ {{ messageResultat }}
 
+    {% for article in articles  %}
+        <p>
+
+        {{ article.title }}
+        </p>
+    {% endfor  %}
+
+
+    {{ knp_pagination_render(articles) }}
 
 {% endblock  %}

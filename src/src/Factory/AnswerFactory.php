@@ -41,6 +41,7 @@ final class AnswerFactory extends ModelFactory
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
             'answer' => self::faker()->text(),
+            'logVote'    => self::faker()->numberBetween(1,10),
             'created_at' => self::faker()->dateTimeBetween( '-1 year' ),
             'updated_at' => self::faker()->dateTimeBetween( ),
         ];

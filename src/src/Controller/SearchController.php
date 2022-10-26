@@ -7,6 +7,7 @@ use App\Entity\Question;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\TextType;
 use Doctrine\ORM\EntityManager;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,7 +50,8 @@ class SearchController extends AbstractController {
   public
   function handleSearch(
       Request $request,
-      ArticleRepository $articleRepository
+      ArticleRepository $articleRepository,
+      PaginatorInterface $paginator
 
   ) {
 
@@ -57,10 +59,23 @@ class SearchController extends AbstractController {
     $articles = $articleRepository->findArticlesByName( $search );
 
 
+    $pagination = $paginator->paginate(
+        $articles,
+        $request->query->getInt('page', 1),
+        3
+
+    );
+
+    
+    $nbrArticles = count($pagination);
+
+
+
     // dd($articles);
     return $this->render( 'article/result_search_article.html.twig',
         [
-            "articles" => $articles,
+            "articles" => $pagination,
+            "messageResultat" => 'Vous avez ' . $nbrArticles .  'résultats',
         ]
     );
 

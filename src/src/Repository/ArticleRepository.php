@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use mysql_xdevapi\Collection;
 
@@ -95,7 +96,7 @@ class ArticleRepository extends ServiceEntityRepository
 	/**
 	 * @return Article[] Returns an array of Article by name objects
 	 */
-	public function findArticlesByName(string $search = null, int $max = 12): array
+	public function findArticlesByName(string $search = null): QueryBuilder
 	{
 		$queryBuilder = $this->createQueryBuilder('article')
 			//->addCriteria( self::createApprovedCriteria() )
@@ -117,12 +118,7 @@ class ArticleRepository extends ServiceEntityRepository
 
 
 
-		return $queryBuilder
-
-
-			->setMaxResults($max)
-			->getQuery()
-			->getResult();
+		return $queryBuilder;
 	}
 
 
