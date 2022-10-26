@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Answer;
 use App\Entity\Article;
 use App\Entity\Question;
+use App\Entity\Tag;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManager;
@@ -80,17 +81,21 @@ class ArticleController extends AbstractController {
   )
   : Response {
 
+    $repository = $entityManager->getRepository( Tag::class );
+    $tags  = $repository->findAll(  );
+
     $form = $this->createForm( ArticleType::class );
     $form->handleRequest( $request );
-    if ( $form->isValid() && $form->isSubmitted() ) {
+/*    if ( $form->isValid() && $form->isSubmitted() ) {
       $newArticle = $form->getData();
       $entityManager->persist( $newArticle );
       $entityManager->flush();
 
-    }
+    }*/
 
     return $this->render( 'article/article_new.html.twig', [
         'articleForm' => $form->createView(),
+      'tags' => $tags,
     ] );
   }
 

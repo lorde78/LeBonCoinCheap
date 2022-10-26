@@ -62,7 +62,7 @@ class SearchController extends AbstractController {
     $pagination = $paginator->paginate(
         $articles,
         $request->query->getInt('page', 1),
-        3
+        4
 
     );
 

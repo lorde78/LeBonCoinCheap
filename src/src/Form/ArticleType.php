@@ -17,9 +17,8 @@ class ArticleType extends AbstractType
             ->add('description')
             ->add('pictures')
             ->add('createdAt')
-            ->add('updatedAt')
-            ->add('idUser')
-            ->add('idTag')
+
+
         ;
     }
 
