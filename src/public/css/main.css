@@ -450,3 +450,23 @@ footer a:hover{
     gap: 40px;
 }
 
+#main .pagination{
+	justify-content: center;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	gap:20px;
+}
+
+.pagination span a {
+	text-decoration: none;
+	color:#4191AB;
+	cursor: pointer;
+}
+
+.pagination span{
+	padding: 10px 15px;
+	background-color: #f5bf42;
+	color:#4191AB;
+	cursor: pointer;
+}
+
