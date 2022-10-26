@@ -443,4 +443,10 @@ footer a:hover{
 	opacity: 1;
 }
 
+#main .produit_card_list{
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
 
