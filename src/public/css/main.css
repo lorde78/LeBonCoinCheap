@@ -369,3 +369,56 @@ a{
 	text-decoration: none;
 	font-size: 18px;
 }
+
+.modal-container {
+	visibility: hidden;
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	transition: all 0.2s linear;
+	opacity: 0;
+}
+.modal-container .modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, .5);
+}
+.modal-container .modal {
+	position: relative;
+	width: 500px;
+	height: 300px;
+	background: #fff;
+	border-radius: 5px;
+	box-sizing: 0 3px 15px rgba(0, 0, 0, .5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Helvetica', 'Segoe UI Light', sans-serif;
+	font-weight: lighter;
+	text-align: center;
+}
+.modal-container .modal span.modal-exit {
+	position: absolute;
+	top: 3px;
+	right: 10px;
+	font-weight: bold;
+	font-size: 22px;
+}
+.modal-container .modal-exit {
+	cursor: pointer;
+}
+.fade-in {
+	visibility: visible !important;
+	z-index: 99;
+	opacity: 1;
+}
+
+

@@ -1,3 +1,9 @@
-{{ form_start(userForm) }}
-{{ form_widget(userForm) }}
-{{ form_end(userForm) }}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+	{{ form_start(userForm) }}
+	{{ form_widget(userForm) }}
+	{{ form_end(userForm) }}
+
+{% endblock %}

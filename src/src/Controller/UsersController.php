@@ -28,7 +28,7 @@ class UsersController extends AbstractController {
       EntityManagerInterface $entityManager,
       UserPasswordHasherInterface $hasher,
       UserAuthenticatorInterface $authenticator,
-      EmptyAuthenticator $loginFormAuthenticator,
+      EmptyAuthenticator $loginFormAuthenticator
   )
   : Response {
 
