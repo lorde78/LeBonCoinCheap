@@ -1,0 +1,29 @@
+{% block div %}
+	<ul
+		class="produit_card_list">
+		{# {% for article in articles %}
+																			<li class="produit_card"></li>
+																		{% endfor %} #}
+		<li class="produit_card_wrapper">
+			<img src="{{asset('images/picture_car.png')}}" alt="">
+			<div class="produit_card_tag">
+				Voiture
+			</div>
+			<div class="produit_card_spec">
+				<h3>Titre</h3>
+				<div class="produit_card_detail">
+					<span>Saint-Lô -</span>
+					<span>2015 -</span>
+					<span>170500 km -</span>
+					<span>Diesel</span>
+				</div>
+				<span class="produit_card_price">19 990€</span>
+				<span class="produit_card_date">18/10/2022 à 22:50</span>
+
+				<a href="" class="btn_read_more">
+					<span>Lire plus</span>
+				</a>
+			</div>
+		</li>
+	</ul>
+{% endblock %}
