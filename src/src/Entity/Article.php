@@ -30,6 +30,9 @@ class Article
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     #[ORM\Column]
     private ?int $price = null;
 
@@ -154,4 +157,20 @@ class Article
 
         return $this;
     }
+
+  /**
+   * @return string|null
+   */
+  public function getSlug()
+  : ?string {
+    return $this->slug;
+  }
+
+
+  public function setSlug($slug): self
+  {
+    $this->slug = str_replace( ['-','?'], '',$this->slug);
+    $this->slug = str_replace( [ "\""  ,' ',',','!',';','\'','.'], '-',$this->getTitle());
+    return $this;
+  }
 }
