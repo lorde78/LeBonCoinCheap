@@ -4,26 +4,29 @@
 		{# {% for article in articles %}
 																			<li class="produit_card"></li>
 																		{% endfor %} #}
+
+		{% for article in articles %}
 		<li class="produit_card_wrapper">
-			<img src="{{asset('images/picture_car.png')}}" alt="">
+			<img src="{{article.pictures[0]}}" alt="">
 			<div class="produit_card_tag">
-				Voiture
+				{{ article.idTag.name }}
 			</div>
 			<div class="produit_card_spec">
-				<h3>Titre</h3>
+				<h3>{{ article.title }}</h3>
 				<div class="produit_card_detail">
 					<span>Saint-Lô -</span>
 					<span>2015 -</span>
 					<span>170500 km -</span>
 					<span>Diesel</span>
 				</div>
-				<span class="produit_card_price">19 990€</span>
-				<span class="produit_card_date">18/10/2022 à 22:50</span>
+				<span class="produit_card_price">{{article.price}} €</span>
+				<span class="produit_card_date"> {{ article.createdAt|date('d-m-Y')}} à {{ article.createdAt|date(' H:i')}}</span>
 
 				<a href="" class="btn_read_more">
 					<span>Lire plus</span>
 				</a>
 			</div>
 		</li>
+		{% endfor %}
 	</ul>
 {% endblock %}
