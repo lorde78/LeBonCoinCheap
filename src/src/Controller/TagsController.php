@@ -43,9 +43,13 @@ class TagsController extends AbstractController {
     $articles = $repositoryArticle->findByIdTag($tag);
 
 
+    //dd($articles);
+
+
 
     return $this->render( 'tags/archive_tags.html.twig', [
-        $articles => $articles,
+        'articles' => $articles,
+      'tagName' => $tags,
     ] );
   }
 }

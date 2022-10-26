@@ -52,7 +52,7 @@ class ArticleController extends AbstractController {
   #[Route( '/articles/{tag}/{idArticle}', name: 'app_articles_by_idArticle' )]
   public function findByIdTagAndByIdArticle( EntityManagerInterface $entityManager, $idArticle ) {
     $repository = $entityManager->getRepository( Article::class );
-    $article   = $repository->find(  $idArticle );
+    $article    = $repository->find( $idArticle );
 
     $repository = $entityManager->getRepository( Question::class );
     $questions  = $repository->findByIdArticleJoinAnswer( $idArticle );
@@ -62,15 +62,14 @@ class ArticleController extends AbstractController {
 
     $list_question = [];
 
-      $repository = $entityManager->getRepository( Answer::class );
-      $answer  = $repository->findByIdQuestion( $questions );
+    $repository = $entityManager->getRepository( Answer::class );
+    $answer     = $repository->findByIdQuestion( $questions );
 
 
-
-    dd($questions, $article);
+    //dd($questions, $article);
     return $this->render( 'article/single.html.twig', [
-        'articles' => $article,
-        'questions' => $questions
+        'article'   => $article,
+        'questions' => $questions,
     ] );
   }
 
@@ -92,6 +91,21 @@ class ArticleController extends AbstractController {
 
     return $this->render( 'article/article_new.html.twig', [
         'articleForm' => $form->createView(),
+    ] );
+  }
+
+
+  #[Route( '/articles/{tag}/{id}/vote', methods: 'post' )]
+  public function singleVote(
+      EntityManagerInterface $entityManager,
+      Request $request
+  ) {
+//Todo checker le repository pour faire le systéme de  like et dislike , ajouter ducoup des conditions ici dans le controller mais aussi dans le controller
+    $direction = $request->request->get( 'direction' );
+
+
+    return $this->json( [
+        'test' => $direction,
     ] );
   }
 }

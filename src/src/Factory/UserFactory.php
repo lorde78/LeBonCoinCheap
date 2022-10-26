@@ -58,6 +58,11 @@ final class UserFactory extends ModelFactory {
       //$email = strtolower( trim($user->getName()).'.'.strtolower($user->getUsername()) . '@gmail.com' );
       //$user->setEmail($email);
       $user->setPassword( $this->hasher->hashPassword( $user, 'password' ) );
+      $rand = rand(1,10);
+      if($rand > 5)
+      {
+        $user->setRoles(['ROLE_ADMIN']);
+      }
     } );
   }
 

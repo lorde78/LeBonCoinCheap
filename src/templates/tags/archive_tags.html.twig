@@ -4,3 +4,23 @@
 {# Faire un foreach de la variable articles #}
 
 
+{% block body %}
+
+    <h1>Annonces de  catégorie {{ tagName }}</h1>
+
+{% for article in articles %}
+    <div>
+        <picture>
+            <p>Image : </p>
+            <img src="{{ article.pictures[0] }}">
+        </picture>
+        <h4>Title: {{ article.title }}</h4>
+        <p> Description : {{ article.description }}</p>
+        <p> price : {{ article.price }} $ </p>
+         <p>Publiée le {{ article.createdAt|date('d-m-Y H:i:s')}} par {{ article.idUser.nickName }} </p>
+    </div>
+
+{% endfor %}
+
+{% endblock  %}
+

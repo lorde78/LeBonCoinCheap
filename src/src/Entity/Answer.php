@@ -25,6 +25,9 @@ class Answer {
   #[ORM\ManyToOne( inversedBy: 'answers' )]
   private ?Question $idQuestion = null;
 
+  #[ORM\Column]
+  private ?int $logVote = null;
+
   public function getId()
   : ?int {
     return $this->id;
@@ -76,5 +79,29 @@ class Answer {
     $this->idQuestion = $idQuestion;
 
     return $this;
+  }
+
+  public function getLogVote(): ?int
+  {
+      return $this->logVote;
+  }
+
+  public function setLogVote(int $logVote): self
+  {
+      $this->logVote = $logVote;
+
+      return $this;
+  }
+
+  public function upVote() {
+    $this->setLogVote( $this->getLogVote() + 1);
+  }
+
+  public function downVote() {
+    if ( $this->getLogVote() > 0 ) {
+      $this->setLogVote($this->getLogVote() - 1);
+    }
+    $this->logVote = 0;
+    $this->setLogVote($this->logVote);
   }
 }
