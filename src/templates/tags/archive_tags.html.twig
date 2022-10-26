@@ -31,7 +31,7 @@
 						<a href="">{{ article.idUser.nickName }}</a>
 					</span>
 
-					<a href="{{ articles }}/{{ article.idTag.name }}/{{ article.id }}" class="btn_read_more">
+					<a href="{{ '/' ~ 'articles' ~ '/' ~  article.idTag.name ~ '/' ~ article.id}}" class="btn_read_more">
 						<span>Lire plus</span>
 					</a>
 				</div>
