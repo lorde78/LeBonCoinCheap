@@ -122,6 +122,22 @@ header {
 	width: 100%;
 }
 
+.navbar li a::before{
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	background-color: #f5bf42;
+	transition: width 0.25s ease-out;
+}
+
+.navbar li a:hover::before {
+	width: 100%;
+  }
+
+
 /* hero */
 
 .hero {
@@ -365,10 +381,14 @@ footer h3{
 	
 }
 
-a{
+footer a{
 	color: #4191AB;
 	text-decoration: none;
 	font-size: 18px;
+}
+
+footer a:hover{
+	color: #4191AB;
 }
 
 .modal-container {
