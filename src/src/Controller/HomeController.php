@@ -19,10 +19,15 @@ class HomeController extends AbstractController
 		$repositoryTag = $entityManager->getRepository(Tag::class);
 		$tags       = $repositoryTag->findAll();
 
+    $repositoryArticle = $entityManager->getRepository(Article::class);
+    $articles       = $repositoryArticle->findByTotalQuestion();
 
+
+    //dd($articles);
 		return $this->render('home/index.html.twig', [
 			'controller_name' => 'HomeController',
 			'tags' => $tags,
+			'articles' => $articles,
 		]);
 	}
 
