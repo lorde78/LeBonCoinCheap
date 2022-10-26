@@ -214,6 +214,7 @@ header {
 	margin-bottom: 20px;
 	color: #245471;
 	font-size: 15px;
+	font-weight: 600;
 }
 
 .produit_card_date {
@@ -223,12 +224,8 @@ header {
 }
 
 .produit_card_list {
-	padding: 0;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
-	grid-gap: 1.5rem;
-	max-width: 100vw;
-	width: 100%;
+	display: flex;
+    justify-content: space-around;
 }
 
 .produit_card_wrapper {
@@ -237,9 +234,14 @@ header {
 	list-style-type: none;
 }
 
+.produit_card_wrapper img{
+	width: 300px;
+}
+
 .produit_card_detail {
 	font-size: 15px;
 	color: #245471;
+	margin-bottom: 10px;
 }
 
 .produit_card_spec {
@@ -319,9 +321,8 @@ header {
 	background-color: #f5bf42;
 	color: #4191ab;
 	position: absolute;
-	top: 38%;
-	transform: translate(50%, 50%);
-	left: 45%;
+    right: 0;
+    top: 0;
 }
 
 /* footer */
