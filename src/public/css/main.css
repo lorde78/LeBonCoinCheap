@@ -216,7 +216,9 @@ header {
 .produit_card_spec {
 	border: 1px solid #f5bf42;
 	width: 300px;
-	padding: 20px;
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
 }
 
 .produit_card_spec h3 {
@@ -262,11 +264,6 @@ header {
 	font-size: 15px;
 	color: #245471;
 	margin-bottom: 10px;
-}
-
-.produit_card_spec {
-	display: flex;
-	flex-direction: column;
 }
 
 .produit_card img {
