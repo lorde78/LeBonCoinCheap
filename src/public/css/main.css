@@ -18,30 +18,42 @@ header {
 	padding-bottom: 30px;
 	display: flex;
 	align-items: center;
-	margin: 0 70px;
 	justify-content: space-around;
+	border-bottom: 1px solid #f5bf42;
 }
 
-.header_logo {
+.header_logo a {
 	width: 140px;
 	height: 140px;
 }
 
-.rechercher input {
+.rechercher,
+.rechercher_form {
+	display: flex;
+	align-items: center;
+}
+
+.rechercher_form img{
+	width: 30px;
+	height: 30px;
+}
+
+.rechercher form input {
 	border: 2px solid #4191ab;
 	padding: 8px 20px 8px 20px;
 	text-align: center;
+	margin-left: 10px;
 }
 
-input:focus::placeholder {
+.rechercher form input:focus::placeholder {
 	color: transparent;
 }
 
-.rechercher input:focus {
+.rechercher form input:focus {
 	outline: none;
 }
 
-input[type="text"]::placeholder {
+.rechercher form input[type="search"]::placeholder {
 	padding: 5px;
 	text-align: left;
 }
@@ -86,7 +98,7 @@ input[type="text"]::placeholder {
 
 /* nav_bar */
 .navbar_wrapper {
-	border: 1px solid #f5bf42;
+	
 	padding-top: 30px;
 	padding-bottom: 30px;
 	margin: inherit;
@@ -278,7 +290,6 @@ input[type="text"]::placeholder {
 	display: flex;
 	flex-direction: column;
 	padding: 0 70px;
-	border-bottom: 1px solid #f5bf42;
 	padding-bottom: 50px;
 }
 
@@ -320,6 +331,7 @@ footer {
 	align-content: stretch;
 	justify-content: space-evenly;
 	padding: 50px 0;
+	border-top: 1px solid #f5bf42;
 }
 
 footer h3{
