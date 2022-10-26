@@ -66,6 +66,8 @@ class ArticleRepository extends ServiceEntityRepository {
   public function findByIdTag( $id )
   : array {
     return $this->createQueryBuilder( 'a' )
+                ->innerJoin( 'a.idUser', 'u' )
+                ->addSelect( 'u' )
                 ->andWhere( 'a.idTag = :val' )
                 ->setParameter( 'val', $id )
                 ->orderBy( 'a.id', 'ASC' )
@@ -110,12 +112,7 @@ class ArticleRepository extends ServiceEntityRepository {
     }
 
 
-
-
-
     return $queryBuilder
-
-
         ->setMaxResults( $max )
         ->getQuery()
         ->getResult();

@@ -2,9 +2,52 @@
 
 
 
-{# afficher la variable article#}
+{# afficher la variable article
+    <div class="js-vote-article">
+        <button data-direction="like" data-id="{{ article.id }}"> Mettre une icône de Like </button>
+        <button data-direction="dislike" data-id="{{ article.id}}">Mettre une icône de dislike</button>
+        <span class="js-vote-article-total"></span>
+    </div>
+#}
 
 {% block body %}
-{{ title }}
 
+
+
+
+    {% for question in questions %}
+        <h5>Question:</h5>
+        <div class="question ml-1" data-questionid="{{ question.id }}">
+            <img src="{{ question.idUSer.avatar}} " height="50x" width="50px" loading="lazy">
+            <p>Publié le: {{ question.createdAt|date('d-m-Y H:i:s')}} par {{ question.idUSer.nickName}} </p>
+            {{ question.question }}
+        </div>
+        <div>
+
+    {% for answer in question.answers %}
+        <h5>Answers:</h5>
+        <div class="answer" data-answerid="{{ answer.id }}">
+            <img src="{{ answer.idUSer.avatar}} " height="50x" width="50px" loading="lazy">
+            <p>Publié le: {{ answer.createdAt|date('d-m-Y H:i:s')}} par {{ answer.idUSer.nickName}} </p>
+        {{ answer.answer }}
+            <div class="js-vote-answer">
+                <button class="badge bg-success js-vote-up" data-direction="up" data-id="{{ answer.id }}"> Mettre une icône de Like </button>
+                <p class="total-vote">0</p>
+                <button class="badge bg-danger js-vote-down" data-direction="down" data-id="{{ answer.id}}">Mettre une icône de dislike</button>
+                <span class="js-vote-article-total"></span>
+            </div>
+
+        </div>
+
+    {% endfor %}
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {# <script src="{{ asset('js/logVote.js') }}"></script> #}
+    <script src="{{ asset('js/logVote.js') }}"></script>
 {% endblock %}

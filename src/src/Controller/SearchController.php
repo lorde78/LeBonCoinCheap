@@ -57,7 +57,7 @@ class SearchController extends AbstractController {
     $articles = $articleRepository->findArticlesByName( $search );
 
 
-    dd($articles);
+    //dd($articles);
     return $this->render( 'article/result_search_article.html.twig',
         [
             "articles" => $articles,

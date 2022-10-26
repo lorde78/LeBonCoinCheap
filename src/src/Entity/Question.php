@@ -24,11 +24,15 @@ class Question {
   #[ORM\ManyToOne( inversedBy: 'questions' )]
   private ?User $idUser = null;
 
-  #[ORM\OneToMany( mappedBy: 'idQuestion', targetEntity: Answer::class  )]
+  #[ORM\OneToMany( mappedBy: 'idQuestion', targetEntity: Answer::class, fetch: 'EAGER' )]
   private Collection $answers;
 
-  #[ORM\ManyToOne(inversedBy: 'questions')]
+  #[ORM\ManyToOne( inversedBy: 'questions' )]
   private ?Article $idArticle = null;
+
+  #[ORM\Column]
+  private ?int $logVote = 0;
+
 
   public function __construct() {
     $this->answers = new ArrayCollection();
@@ -94,15 +98,39 @@ class Question {
     return $this;
   }
 
-  public function getIdArticle(): ?Article
-  {
-      return $this->idArticle;
+  public function getIdArticle()
+  : ?Article {
+    return $this->idArticle;
   }
 
-  public function setIdArticle(?Article $idArticle): self
-  {
-      $this->idArticle = $idArticle;
+  public function setIdArticle( ?Article $idArticle )
+  : self {
+    $this->idArticle = $idArticle;
 
-      return $this;
+    return $this;
+  }
+
+  public function getLogVote()
+  : ?int {
+    return $this->logVote;
+  }
+
+  public function setLogVote( int $logVote )
+  : self {
+    $this->logVote = $logVote;
+
+    return $this;
+  }
+
+  public function upVote() {
+    $this->setLogVote( $this->getLogVote() + 1);
+  }
+
+  public function downVote() {
+    if ( $this->getLogVote() > 0 ) {
+      $this->setLogVote($this->getLogVote() - 1);
+    }
+    $this->logVote = 0;
+    $this->setLogVote($this->logVote);
   }
 }
