@@ -5,7 +5,13 @@
 
 
 {% block content %}
-	<h3>{{ tagName }}</h3>
+
+	<div class="section_populaire_title">
+		<img src="{{asset('images/beforetitle.png')}}" alt="">
+		<h2>{{ tagName }}</h2>
+	</div>
+
+
 	<ul class="produit_card_list">
 		{% for article in articles %}
 			<li class="produit_card_wrapper">
