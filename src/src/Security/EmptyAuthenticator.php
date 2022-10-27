@@ -57,7 +57,7 @@ class EmptyAuthenticator extends AbstractAuthenticator {
       return new RedirectResponse( $targetPath );
     }
 
-    return new RedirectResponse( $this->urlGenerator->generate( 'app_login' ) );
+    return new RedirectResponse( $this->urlGenerator->generate( 'app_home' ) );
   }
 
   public function onAuthenticationFailure( Request $request, AuthenticationException $exception )
