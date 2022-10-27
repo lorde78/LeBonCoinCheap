@@ -5,10 +5,7 @@
 
 
 {% block content %}
-
 	<h3>{{ tagName }}</h3>
-
-
 	<ul class="produit_card_list">
 		{% for article in articles %}
 			<li class="produit_card_wrapper">
@@ -28,7 +25,7 @@
 						€</span>
 					<span class="produit_card_date">{{ article.createdAt|date('d-m-Y H:i:s')}}
 						par
-						<a href="">{{ article.idUser.nickName }}</a>
+						<a href="{{ '/users/' ~ article.idUser.id }}">{{ article.idUser.nickName }}</a>
 					</span>
 
 					<a href="{{ '/' ~ 'articles' ~ '/' ~  article.idTag.name ~ '/' ~ article.id}}" class="btn_read_more">

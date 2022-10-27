@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div>
+        <img src="{{ user.avatar }}">
+        <p>nickname :{{ user.nickName }}</p>
+        <p>email :{{ user.email }}</p>
+        <p>Rôles : </p>
+        <ul>
+            {% for role in user.roles %}
+                <li>
+                    {{ role }}
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endblock %}

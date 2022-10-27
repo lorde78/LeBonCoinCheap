@@ -1,23 +1,27 @@
 {% block section %}
-	<header>
-		<div class="rechercher">
-			<a href="/"><img class="header_logo" src="{{asset('images/logo_transparent.png')}}" alt=""></a>
-			<div class="rechercher_form">
-				<img src="{{asset('images/loupe.png')}}" alt="">
-				<form action="{{ path('app_handle_search') }}">
-					<input type="search" name="q" placeholder="Rechercher">
-				</form>
-			</div>
-		</div>
-		<div class="header_main_cta_block">
-			<a class="main_cta" href="{{ path('app_new_article') }}">Déposer une annonce</a>
-			<a class="main_cta" href="/new_user">S'inscrire | Se connecter</a>
-		</div>
-		{# <div class="header_main_cta_block">
+    <header>
+        <div class="rechercher">
+            <a href="/"><img class="header_logo" src="{{ asset('images/logo_transparent.png') }}" alt=""></a>
+            <div class="rechercher_form">
+                <img src="{{ asset('images/loupe.png') }}" alt="">
+                <form action="{{ path('app_handle_search') }}">
+                    <input type="search" name="q" placeholder="Rechercher">
+                </form>
+            </div>
+        </div>
+        <div class="header_main_cta_block">
+            {% if ( is_granted('ROLE_ADMIN') and is_granted('ROLE_USER')) or is_granted('ROLE_USER') %}
+                <a class="main_cta" href="{{ path('app_new_article') }}">Déposer une annonce</a>
+                <a class="main_cta" href="{{ path( 'app_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a class="main_cta" href="{{ path( 'app_login') }}">S'inscrire | Se connecter</a>
+            {% endif %}
+        </div>
+        {# <div class="header_main_cta_block">
 			<a class="main_cta" href="{{ path('app_new_article') }}">Déposer une annonce</a>
 			<a class="main_cta modal-button" href="#">S'inscrire | Se connecter</a>
 		</div> #}
-		{# <div class="modal-container">
+        {# <div class="modal-container">
 			<div class="modal-overlay modal-exit"></div>
 			<div class="modal">
 				<span class="modal-exit">&times;</span>
@@ -26,5 +30,5 @@
 				</div>
 			</div>
 		</div> #}
-	</header>
+    </header>
 {% endblock %}
