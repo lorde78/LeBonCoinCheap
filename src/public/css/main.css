@@ -475,37 +475,92 @@ footer a:hover {
 }
 
 /* form login */
+/* registration */
 
-.form_login_wrapper{
+.form_login_wrapper,
+.form_register_wrapper {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	margin-top: 60px;
-    margin-bottom: 60px;
+	margin-bottom: 60px;
 	gap: 40px;
 }
 
-.form_login_wrapper form{
-	padding: 50px 100px 50px 100px;
+.form_login_wrapper form::after,
+.form_register_wrapper form::after {
+	box-shadow: 15px 15px #d9d9d9;
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.form_login_wrapper form,
+.form_register_wrapper form {
+	padding: 50px 100px 100px 100px;
 	align-self: center;
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	background-color: #245471;
+	position: relative;
 }
 
-.form_login_wrapper a img{
+.form_login_wrapper a img,
+.form_register_wrapper a img {
 	width: 200px;
 	height: 200px;
 }
 
-.form_login_wrapper a{
-	width: 200px;
-	height: 200px;
-	align-self: center;
+.form_login_wrapper a,
+.form_register_wrapper a {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .form_login_wrapper form input[name="email"],
-.form_login_wrapper form input[name="password"]
-{
+.form_login_wrapper form input[name="password"],
+.form_register_wrapper form input[name="email"],
+.form_register_wrapper form input[name="email"] {
 	margin-bottom: 20px;
+	border: 2px solid #4191ab;
+	padding: 8px 20px 8px 20px;
+	text-align: center;
 }
+
+.form_login_wrapper form h3,
+.form_register_wrapper form h3 {
+	line-height: 0.7;
+	font-size: 28px;
+	color: #f5bf42;
+	align-self: center;
+	margin-bottom: 40px;
+	text-transform: uppercase;
+}
+
+.form-control {
+	border-radius: 0px !important;
+}
+
+.secondary_cta{
+	color: #f5bf42;
+    background-color: #4191ab;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.form_login_wrapper a,
+.form_register_wrapper a{
+	color: #4191ab;
+	font-size: 14px;
+}
+
