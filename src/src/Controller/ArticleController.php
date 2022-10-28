@@ -7,6 +7,7 @@ use App\Entity\Article;
 use App\Entity\Question;
 use App\Entity\Tag;
 use App\Form\ArticleType;
+use App\Form\QuestionFormType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -51,7 +52,7 @@ class ArticleController extends AbstractController {
 
 
   #[Route( '/articles/{tag}/{idArticle}', name: 'app_articles_by_idArticle' )]
-  public function findByIdTagAndByIdArticle( EntityManagerInterface $entityManager, $idArticle ) {
+  public function findByIdTagAndByIdArticle( EntityManagerInterface $entityManager, $idArticle, Request $request ) {
     $repository = $entityManager->getRepository( Article::class );
     $article    = $repository->find( $idArticle );
 
@@ -82,20 +83,27 @@ class ArticleController extends AbstractController {
   : Response {
 
     $repository = $entityManager->getRepository( Tag::class );
-    $tags  = $repository->findAll(  );
+    $tags       = $repository->findAll();
 
-    $form = $this->createForm( ArticleType::class );
+
+    $form = $this->createForm( ArticleType::class, array(
+        'user' => $this->getUser()
+    ) );
     $form->handleRequest( $request );
-/*    if ( $form->isValid() && $form->isSubmitted() ) {
+
+    if ( $form->isSubmitted() && $form->isValid() ) {
       $newArticle = $form->getData();
       $entityManager->persist( $newArticle );
       $entityManager->flush();
 
-    }*/
+      $this->addFlash( 'success', 'Article ajoutée , bienvenue ! :)' );
+    }
+
+    //dd($request);
 
     return $this->render( 'article/article_new.html.twig', [
         'articleForm' => $form->createView(),
-      'tags' => $tags,
+        'tags'        => $tags,
     ] );
   }
 

@@ -23,13 +23,13 @@ class QuestionsController extends AbstractController {
 
 
 
-  public function new(): Response
+/*  public function new(): Response
   {
     $form =$this->createForm(QuestionFormType::class);
     return $this->render('question/new.html.twig', [
         'questionForm' =>$form->createView()
     ]);
-  }
+  }*/
 
   #[Route( '/question/{IdArticle}', name: 'app_question_by_id' )]
   public function listarticlebyidarticle( EntityManagerInterface $entityManager, $IdArticle ) {

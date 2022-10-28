@@ -84,6 +84,9 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/options-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/validator" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/knplabs/knp-paginator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/translation" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
