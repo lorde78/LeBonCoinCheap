@@ -473,3 +473,39 @@ footer a:hover {
 	color: #4191ab;
 	cursor: pointer;
 }
+
+/* form login */
+
+.form_login_wrapper{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 60px;
+    margin-bottom: 60px;
+	gap: 40px;
+}
+
+.form_login_wrapper form{
+	padding: 50px 100px 50px 100px;
+	align-self: center;
+	display: flex;
+    flex-direction: column;
+	background-color: #245471;
+}
+
+.form_login_wrapper a img{
+	width: 200px;
+	height: 200px;
+}
+
+.form_login_wrapper a{
+	width: 200px;
+	height: 200px;
+	align-self: center;
+}
+
+.form_login_wrapper form input[name="email"],
+.form_login_wrapper form input[name="password"]
+{
+	margin-bottom: 20px;
+}
