@@ -39,16 +39,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface {
   private $roles = [];
 
 
-  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Question::class )]
+  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Question::class , fetch:"EAGER")]
   private Collection $questions;
 
-  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Answer::class )]
+  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Answer::class, fetch:"EAGER" )]
   private Collection $answers;
 
-  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Vote::class )]
+  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Vote::class, fetch:"EAGER" )]
   private Collection $votes;
 
-  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Article::class )]
+  #[ORM\OneToMany( mappedBy: 'idUser', targetEntity: Article::class, fetch:"EAGER" )]
   private Collection $articles;
 
 

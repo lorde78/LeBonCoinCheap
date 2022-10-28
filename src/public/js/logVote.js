@@ -21,20 +21,6 @@ jQuery( document ).ready(
                     logVote.text( response.votes );
                 },
             );
-
-            /*            $.ajax({
-             type: "POST",
-             url: '/questions/' + questionId + '/vote',
-             data: '{"direction":"' + directionVote +'"}',
-             contentType: "application/json; charset=utf-8",
-             dataType: "json",
-             success: function(data) {
-             alert(data.votes);
-             },
-             error: function(data){
-             alert("fail");
-             }
-             });*/
         } );
 
     },

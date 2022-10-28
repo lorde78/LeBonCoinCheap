@@ -30,10 +30,7 @@ class ArticleType extends AbstractType
             ->add('title')
             ->add('price', IntegerType::class)
             ->add('description')
-            ->add('pictures' )
-            ->add('idUser', IntegerType::class, [
-                'required' => $options['user']
-            ] )
+            ->add('pictures')
             ->add( 'submit', SubmitType::class );
 
 
@@ -42,14 +39,14 @@ class ArticleType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
+/*        $resolver->setDefaults([
             'data_class' => Article::class,
         ]);
 
       $resolver->setRequired('user');
 
       // type validation - User instance or int, you can also pick just one.
-      $resolver->setAllowedTypes('user', array(User::class, 'int'));
+      $resolver->setAllowedTypes('user', array(User::class, 'int'));*/
 
     }
 

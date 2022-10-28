@@ -12,6 +12,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -78,31 +79,54 @@ class ArticleController extends AbstractController {
   #[Route( '/new_article', name: 'app_new_article' )]
   public function new(
       EntityManagerInterface $entityManager,
-      Request $request
+      Request $request,
+      ManagerRegistry $doctrine,
   )
   : Response {
-
     $repository = $entityManager->getRepository( Tag::class );
     $tags       = $repository->findAll();
 
 
-    $form = $this->createForm( ArticleType::class, array(
-        'user' => $this->getUser()
-    ) );
-    $form->handleRequest( $request );
 
-    if ( $form->isSubmitted() && $form->isValid() ) {
-      $newArticle = $form->getData();
-      $entityManager->persist( $newArticle );
-      $entityManager->flush();
 
-      $this->addFlash( 'success', 'Article ajoutée , bienvenue ! :)' );
+
+
+    $title = $request->request->get('title');
+    $price = $request->request->get('price');
+    $description = $request->request->get('description');
+    $tagNAme = $request->request->get('tagName');
+
+
+   // dd($request);
+
+
+    //dd($tags);
+
+    if($title) {
+
+    $tag       = $repository->find();
+    $entityManager = $doctrine->getManager();
+
+    $product = new Article();
+    $product->setTitle($title);
+    $product->setPrice($price);
+    $product->setSlug($title);
+    $product->setCreatedAt(new \DateTime($request->get('time')));
+    $product->setUpdatedAt(new \DateTime($request->get('time')));
+    $product->setDescription($description);
+    $product->setIdTag(2);
+    $product->setIdUser($this->getUser());
+
+    // tell Doctrine you want to (eventually) save the Product (no queries yet)
+    $entityManager->persist($product);
+
+    // actually executes the queries (i.e. the INSERT query)
+    $entityManager->flush();
     }
 
-    //dd($request);
+
 
     return $this->render( 'article/article_new.html.twig', [
-        'articleForm' => $form->createView(),
         'tags'        => $tags,
     ] );
   }

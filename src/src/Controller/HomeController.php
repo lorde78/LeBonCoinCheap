@@ -22,7 +22,6 @@ class HomeController extends AbstractController {
   : Response {
     $repositoryTag = $entityManager->getRepository( Tag::class );
     $tags          = $repositoryTag->findAll();
-
     $repositoryArticle = $entityManager->getRepository( Article::class );
     $articles          = $repositoryArticle->findByTotalQuestion();
 
