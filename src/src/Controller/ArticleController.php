@@ -6,9 +6,11 @@ use App\Entity\Answer;
 use App\Entity\Article;
 use App\Entity\Question;
 use App\Entity\Tag;
+use App\Entity\User;
 use App\Form\ArticleType;
 use App\Form\QuestionFormType;
 use App\Repository\ArticleRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -87,47 +89,48 @@ class ArticleController extends AbstractController {
     $tags       = $repository->findAll();
 
 
+    $title       = $request->request->get( 'title' );
+    $price       = $request->request->get( 'price' );
+    $description = $request->request->get( 'description' );
+    $tagNAme     = $request->request->get( 'tagName' );
 
 
-
-
-    $title = $request->request->get('title');
-    $price = $request->request->get('price');
-    $description = $request->request->get('description');
-    $tagNAme = $request->request->get('tagName');
-
-
-   // dd($request);
+    //dd($user);
 
 
     //dd($tags);
 
-    if($title) {
+    if ( $title ) {
 
-    $tag       = $repository->find();
-    $entityManager = $doctrine->getManager();
+      $tag = $repository->find( $tagNAme );
 
-    $product = new Article();
-    $product->setTitle($title);
-    $product->setPrice($price);
-    $product->setSlug($title);
-    $product->setCreatedAt(new \DateTime($request->get('time')));
-    $product->setUpdatedAt(new \DateTime($request->get('time')));
-    $product->setDescription($description);
-    $product->setIdTag(2);
-    $product->setIdUser($this->getUser());
+      /*    $repositoryUser = $entityManager->getRepository( User::class );
+          $user = $repository->find();*/
 
-    // tell Doctrine you want to (eventually) save the Product (no queries yet)
-    $entityManager->persist($product);
+      $entityManager = $doctrine->getManager();
 
-    // actually executes the queries (i.e. the INSERT query)
-    $entityManager->flush();
+      $product = new Article();
+      $product->setTitle( $title );
+      $product->setPrice( $price );
+      $product->setSlug( $title );
+      $product->setCreatedAt( new \DateTime( $request->get( 'time' ) ) );
+      $product->setUpdatedAt( new \DateTime( $request->get( 'time' ) ) );
+      $product->setDescription( $description );
+      $product->setIdTag( $tag );
+      $product->setIdUser( $this->getUser() );
+
+      // tell Doctrine you want to (eventually) save the Product (no queries yet)
+      $entityManager->persist( $product );
+
+      // actually executes the queries (i.e. the INSERT query)
+      $entityManager->flush();
+
+      $this->addFlash( 'success', 'Artcle Ajouté' );
     }
 
 
-
     return $this->render( 'article/article_new.html.twig', [
-        'tags'        => $tags,
+        'tags' => $tags,
     ] );
   }
 

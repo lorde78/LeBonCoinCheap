@@ -32,9 +32,9 @@ security:
   access_control:
       - { path: ^/, roles: PUBLIC_ACCESS }
       - { path: ^/login$, roles: PUBLIC_ACCESS }
-      - { path: ^/$, roles: IS_AUTHENTICATED_FULLY }
+      - { path: ^/new_article, roles: IS_AUTHENTICATED }
+      #- { path: ^/$, roles: IS_AUTHENTICATED_FULLY }
       # - { path: ^/admin, roles: ROLE_ADMIN }
-      # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
   security:

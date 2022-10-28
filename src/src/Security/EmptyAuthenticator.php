@@ -63,7 +63,7 @@ class EmptyAuthenticator extends AbstractAuthenticator {
   public function onAuthenticationFailure( Request $request, AuthenticationException $exception )
   : ?Response {
     // TODO: Implement onAuthenticationFailure() method.
-    dd( $request );
+    return new RedirectResponse( $this->urlGenerator->generate( 'app_login' ) );
   }
 
 //    public function start(Request $request, AuthenticationException $authException = null): Response

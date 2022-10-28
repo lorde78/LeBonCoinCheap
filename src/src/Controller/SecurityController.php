@@ -68,7 +68,7 @@ class SecurityController extends AbstractController {
           $request
       );
     }
-      $this->addFlash( 'ERROR', 'Error ! :)' );
+      $this->addFlash( 'error', 'Il y a eu une erreur ! :(' );
 
 
     return $this->render( 'user/index.html.twig', [
