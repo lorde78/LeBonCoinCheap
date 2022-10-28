@@ -1,9 +1,6 @@
 {% block div %}
 	<ul
 		class="produit_card_list">
-		{# {% for article in articles %}
-																			<li class="produit_card"></li>
-																		{% endfor %} #}
 
 		{% for article in articles %}
 		<li class="produit_card_wrapper">
@@ -22,7 +19,7 @@
 				<span class="produit_card_price">{{article.price}} €</span>
 				<span class="produit_card_date"> {{ article.createdAt|date('d-m-Y')}} à {{ article.createdAt|date(' H:i')}}</span>
 
-				<a href="" class="btn_read_more">
+				<a href="{{ '/' ~ 'articles' ~ '/' ~  article.idTag.name ~ '/' ~ article.id}}" class="btn_read_more">
 					<span>Lire plus</span>
 				</a>
 			</div>

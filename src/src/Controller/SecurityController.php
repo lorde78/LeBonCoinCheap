@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
+use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmptyAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -58,7 +60,7 @@ class SecurityController extends AbstractController {
       $entityManager->persist( $newUser );
       $entityManager->flush();
 
-      $this->addFlash('success', 'Inscription réussie , bienvenue ! :)');
+      $this->addFlash( 'success', 'Inscription réussie , bienvenue ! :)' );
 
       return $authenticator->authenticateUser(
           $newUser,
@@ -70,10 +72,24 @@ class SecurityController extends AbstractController {
 
     return $this->render( 'user/index.html.twig', [
         'userForm' => $form->createView(),
-        'test' => 'test'
+        'test'     => 'test',
     ] );
   }
 
 
+  /**
+   * @Route("/users/{id}", name="app_user_by_id")
+   */
+  public function showUserById( EntityManagerInterface $entityManager, $id )
+  : Response {
 
+    $repository = $entityManager->getRepository( User::class );
+    $user       = $repository->find( $id );
+  //dd($user);
+    return $this->render( 'users/single_user.html.twig', [
+        'user' => $user,
+    ] );
   }
+
+
+}

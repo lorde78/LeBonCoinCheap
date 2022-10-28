@@ -11,7 +11,31 @@
 #}
 
 {% block content %}
+    <div class="produit">
+        <img src="{{ article.pictures[0] }}" alt="">
+        <div class="produit_card_tag">
+            {{ article.idTag.name }}
+        </div>
+        <div class="produit_card_spec">
+            <h3>{{ article.title }}</h3>
+            <div class="produit_card_detail">
+                <span>Saint-Lô -</span>
+                <span>2015 -</span>
+                <span>170500 km -</span>
+                <span>Diesel</span>
+            </div>
+            <span class="produit_card_price">{{ article.price }}
+						€</span>
+            <span class="produit_card_date">{{ article.createdAt|date('d-m-Y H:i:s')}}
+						par
+						<a href="">{{ article.idUser.nickName }}</a>
+					</span>
 
+            <a href="{{ '/' ~ 'articles' ~ '/' ~  article.idTag.name ~ '/' ~ article.id}}" class="btn_read_more">
+                <span>Lire plus</span>
+            </a>
+        </div>
+    </div>
 
 
 

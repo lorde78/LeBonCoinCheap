@@ -5,10 +5,12 @@
 
 
 {% block content %}
+
 	<div class="section_populaire_title">
 		<img src="{{asset('images/beforetitle.png')}}" alt="">
 		<h2>{{ tagName }}</h2>
 	</div>
+
 
 	<ul class="produit_card_list">
 		{% for article in articles %}
@@ -29,10 +31,10 @@
 						€</span>
 					<span class="produit_card_date">{{ article.createdAt|date('d-m-Y H:i:s')}}
 						par
-						<a href="">{{ article.idUser.nickName }}</a>
+						<a href="{{ '/users/' ~ article.idUser.id }}">{{ article.idUser.nickName }}</a>
 					</span>
 
-					<a href="" class="btn_read_more">
+					<a href="{{ '/' ~ 'articles' ~ '/' ~  article.idTag.name ~ '/' ~ article.id}}" class="btn_read_more">
 						<span>Lire plus</span>
 					</a>
 				</div>
