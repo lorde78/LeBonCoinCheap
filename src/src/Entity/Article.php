@@ -28,16 +28,16 @@ class Article
     private ?User $idUser = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private  $title = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $slug = null;
+    private  $slug = null;
 
     #[ORM\Column]
     private ?int $price = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    private  $description = null;
 
     #[ORM\Column(type: Types::ARRAY)]
     private array $pictures = [];
@@ -91,7 +91,7 @@ class Article
         return $this->idUser;
     }
 
-    public function setIdUser(?User $idUser): self
+    public function setIdUser( $idUser): self
     {
         $this->idUser = $idUser;
 
@@ -103,7 +103,7 @@ class Article
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle( $title): self
     {
         $this->title = $title;
 
@@ -115,7 +115,7 @@ class Article
         return $this->price;
     }
 
-    public function setPrice(int $price): self
+    public function setPrice( $price): self
     {
         $this->price = $price;
 
@@ -127,7 +127,7 @@ class Article
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription( $description): self
     {
         $this->description = $description;
 
@@ -151,7 +151,7 @@ class Article
         return $this->idTag;
     }
 
-    public function setIdTag(?Tag $idTag): self
+    public function setIdTag( $idTag): self
     {
         $this->idTag = $idTag;
 

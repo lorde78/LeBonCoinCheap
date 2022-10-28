@@ -1,16 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'dddddddddd' }}{% endblock %}
-
 {% block content %}
-    {{ form_start(articleForm) }}
-    {{ form_widget(articleForm) }}
 
-    <select name="pets" id="pet-select">
-        <option value="">--Please choose an tag--</option>
-    {% for tag in tags %}
-        <option name="idTagidTag" value="{{ tag.id }}">{{ tag.name }}</option>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
     {% endfor %}
-    </select>
-    {{ form_end(articleForm) }}
+    <div class="form_login_wrapper">
+        <form method="post">
+            <h3>Ajouter un article</h3>
+            <input class="form-control" type="text" name="title" placeholder="title">
+            <input class="form-control" type="number" name="price" placeholder="price">
+            <input class="form-control" type="text" name="description" placeholder="description">
+            <input class="form-control" type="file" name="pictures" placeholder="pictures">
+            <label for="pet-select">Choose a tag:</label>
+
+            <select name="tagName" id="pet-select">
+                <option value="">--Please choose a tag--</option>
+                {% for tag in tags %}
+                <option id="{{ tag.id }}" value="{{ tag.id }}">{{ tag.name }}</option>
+                    {{ tag.name }}
+                {% endfor %}
+            </select>
+            <input type="hidden" name="csrf" value="{{ csrf_token('addArtiicle_form') }}">
+            <input class="secondary_cta" type="submit" name="Login" placeholder="Ajouter l'article">
+        </form>
+
+    </div>
+
 {% endblock %}

@@ -23,6 +23,7 @@ class RegistrationFormType extends AbstractType {
                 'mapped' => false,
             ]
         )
+        ->add('user')
         ->add( 'submit', SubmitType::class );
   }
 
