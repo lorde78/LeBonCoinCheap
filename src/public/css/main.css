@@ -478,17 +478,12 @@ footer a:hover {
 
 /* registration */
 
-.form_login_wrapper,
-.form_register_wrapper {
-
 
 .form_login_wrapper{
-
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	margin-top: 60px;
-
 	margin-bottom: 60px;
 	gap: 40px;
 }
@@ -521,16 +516,7 @@ footer a:hover {
 	gap: 40px;
 }
 
-.form_login_wrapper form{
-	border: 1px solid black;
-	padding: 50px 100px 50px 100px;
-	align-self: center;
-	display: flex;
-    flex-direction: column;
-}
-
 .form_login_wrapper a img{
-
 	width: 200px;
 	height: 200px;
 }
@@ -585,11 +571,7 @@ footer a:hover {
 	font-size: 14px;
 }
 
-.form_login_wrapper a{
-	width: 200px;
-	height: 200px;
-	align-self: center;
-}
+
 
 .form_login_wrapper form input[name="email"],
 .form_login_wrapper form input[name="name"]
