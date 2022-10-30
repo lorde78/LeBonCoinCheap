@@ -479,7 +479,8 @@ footer a:hover {
 /* registration */
 
 .form_login_wrapper,
-form[name="registration_form"] {
+form[name="registration_form"],
+.form_articleadd_wrapper {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -489,7 +490,8 @@ form[name="registration_form"] {
 }
 
 .form_login_wrapper form::after,
-#registration_form::after {
+#registration_form::after,
+.form_articleadd_wrapper form::after {
 	box-shadow: 15px 15px #d9d9d9;
 	content: "";
 	position: absolute;
@@ -501,7 +503,8 @@ form[name="registration_form"] {
 }
 
 .form_login_wrapper form,
-#registration_form {
+#registration_form,
+.form_articleadd_wrapper form {
 	padding: 50px 100px 100px 100px;
 	align-self: center;
 	display: flex;
@@ -541,7 +544,8 @@ form[name="registration_form"] {
 }
 
 .form_login_wrapper form h3,
-.form_register_title {
+.form_register_title,
+.form_articleadd_wrapper form h3 {
 	line-height: 0.7;
 	font-size: 28px;
 	color: #f5bf42;
@@ -597,7 +601,7 @@ form[name="registration_form"] {
 .section_single_product_right {
 	grid-area: text;
 	position: relative;
-    left: -100px;
+	left: -100px;
 }
 
 .section_single_product_left_single {
@@ -646,51 +650,117 @@ form[name="registration_form"] {
 	color: #4191ab;
 }
 
-.produit_single_price{
+.produit_single_price {
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
 
-.produit_single_description{
+.produit_single_description {
 	margin-top: 15px;
 	border-top: 1px solid #f5bf42;
-    padding-top: 10px;
+	padding-top: 10px;
 }
 
-.section_qa{
+.section_qa {
 	display: flex;
 	flex-direction: column;
 	padding: 0 70px;
 }
 
-.section_qa_heading{
+.section_qa_heading {
 	display: flex;
 	justify-content: center;
-    border-top: 1px solid #f5bf42;
-    padding: 20px 0;
+	border-top: 1px solid #f5bf42;
+	padding: 20px 0 40px;
 }
 
-.section_qa_heading h4{
+.section_qa_heading h4 {
 	margin-bottom: 0px;
-    line-height: 0.7;
-    margin-left: 20px;
-    font-size: 28px;
-    align-self: end;
-    color: #245471;
+	line-height: 0.7;
+	margin-left: 20px;
+	font-size: 28px;
+	align-self: end;
+	color: #245471;
 }
 
-.question{
+.question,
+.reponse {
 	border: 1px solid #f5bf42;
 	padding: 10px;
+	width: fit-content;
+	height: fit-content;
+	border-radius: 15px;
 }
 
-.question_user{
+.reponse{
+	margin-top: 10px;
+}
+
+.question_user,
+.reponse_user {
 	display: flex;
+	margin-bottom: 10px;
 }
 
-.question_user span{
-	align-self: flex-end;
-    line-height: 0.8;
-    margin-left: 10px;
-    text-transform: uppercase;
+.question_user img,
+.reponse_user img {
+	border-radius: 100%;
+}
+
+.question_user span,
+.reponse_user span {
+	align-self: center;
+	line-height: 0.8;
+	margin-left: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #245471;
+}
+
+.question_user_question,
+.reponse_user_reponse {
+	color: #245471;
+	font-weight: italic;
+	margin-bottom: 10px;
+}
+.question_user_published,
+.reponse_user_published {
+	color: #b3b3b3;
+	font-size: 12px;
+}
+
+.reponse_user_reponse_wrapper {
+	display: flex;
+	gap: 40px;
+}
+
+.reponse_wrapper {
+	margin-bottom: 70px;
+	display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+.js-vote-up svg,
+.js-vote-down svg{
+	width: 25px !important;
+    height: 30px !important;
+}
+
+.js-vote-up,
+.js-vote-down {
+	border: none;
+    background: inherit;
+	padding: 0;
+}
+
+.form_articleadd_wrapper form input[name="title"],
+.form_articleadd_wrapper form input[name="price"],
+.form_articleadd_wrapper form input[name="description"],
+.form_articleadd_wrapper form input[name="pictures"],
+.form_articleadd_wrapper form select {
+	margin-bottom: 20px;
+	border: 2px solid #4191ab;
+	padding: 8px 20px 8px 20px;
+	text-align: center;
 }
