@@ -1,19 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div>
-        <img src="{{ user.avatar }}">
-        <p>nickname :{{ user.nickName }}</p>
-        <p>email :{{ user.email }}</p>
-        <p>Rôles : </p>
-        <ul>
-            {% for role in user.roles %}
-                <li>
-                    {{ role }}
-                </li>
-            {% endfor %}
-        </ul>
-
-    </div>
+	<div class="user_profile_wrapper">
+		<div class="user_profile_header">
+			<img src="{{ user.avatar }}">
+			<div class="user_profile_info">
+				<span class="user_profile_nickname">{{ user.nickName }}</span>
+				<span class="user_profile_email">{{ user.email }}</span>
+				<span class="user_profile_roles">
+					{% for role in user.roles %}
+						<span>{{ role }}</span>
+					{% endfor %}
+				</span>
+                <span class="user_profile_created"> Membre depuis le : </span>
+			</div>
+		</div>
+        {# <div>
+            <h3>Articles de l'utilisateur : nombre d'articles</h3>
+           
+        </div>
+        <div>
+            <h3>Commentaires de l'utilisateur : nombre de commentaires</h3>
+            
+        </div> #}
+		
+	</div>
 
 {% endblock %}
