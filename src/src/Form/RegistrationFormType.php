@@ -14,16 +14,37 @@ class RegistrationFormType extends AbstractType {
   public function buildForm( FormBuilderInterface $builder, array $options )
   : void {
     $builder
-        ->add( 'name')
-        ->add( 'email',EmailType::class  )
-        ->add( 'nickName' )
-        ->add( 'surName' )
-        ->add( 'avatar' )
+        ->add( 'name', null, [
+		  'attr' => array(
+			'class' => 'form-control'
+		  )])
+        ->add( 'email',EmailType::class,[
+			'attr' => array(
+			  'class' => 'form-control'
+			)]  )
+        ->add( 'nickName', null, [
+			'attr' => array(
+			  'class' => 'form-control'
+			)] )
+        ->add( 'surName', null, [
+			'attr' => array(
+			  'class' => 'form-control'
+			)] )
+        ->add( 'avatar', null, [
+			'attr' => array(
+			  'class' => 'form-control'
+			)] )
         ->add( 'passwordForm', PasswordType::class, [
                 'mapped' => false,
+				'attr' => array(
+					'class' => 'form-control'
+				  )
             ]
         )
-        ->add( 'submit', SubmitType::class );
+        ->add( 'submit', SubmitType::class, [
+			'attr' => array(
+			  'class' => 'form-control secondary_cta'
+			)] );
   }
 
   public function configureOptions( OptionsResolver $resolver )

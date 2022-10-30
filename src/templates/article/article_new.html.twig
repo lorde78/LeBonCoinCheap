@@ -7,15 +7,13 @@
             {{ message }}
         </div>
     {% endfor %}
-    <div class="form_login_wrapper">
+    <div class="form_articleadd_wrapper">
         <form method="post">
             <h3>Ajouter un article</h3>
-            <input class="form-control" type="text" name="title" placeholder="title">
-            <input class="form-control" type="number" name="price" placeholder="price">
-            <input class="form-control" type="text" name="description" placeholder="description">
-            <input class="form-control" type="file" name="pictures" placeholder="pictures">
-            <label for="pet-select">Choose a tag:</label>
-
+            <input class="form-control" type="text" name="title" placeholder="Titre">
+            <input class="form-control" type="number" name="price" placeholder="Prix">
+            <input class="form-control" type="text" name="description" placeholder="Description">
+            <input class="form-control" type="file" name="pictures" placeholder="Photos">
             <select name="tagName" id="pet-select">
                 <option value="">--Please choose a tag--</option>
                 {% for tag in tags %}
