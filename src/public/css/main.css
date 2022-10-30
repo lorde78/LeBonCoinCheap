@@ -478,7 +478,6 @@ footer a:hover {
 
 /* registration */
 
-
 .form_login_wrapper,
 form[name="registration_form"] {
 	display: flex;
@@ -513,11 +512,11 @@ form[name="registration_form"] {
 
 .form_login_wrapper a img,
 .form_register_wrapper a img {
-    margin-bottom: 60px;
+	margin-bottom: 60px;
 	gap: 40px;
 }
 
-.form_login_wrapper a img{
+.form_login_wrapper a img {
 	width: 200px;
 	height: 200px;
 }
@@ -528,7 +527,7 @@ form[name="registration_form"] {
 	bottom: 0;
 	right: 0;
 	margin-right: 20px;
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .form_login_wrapper form input[name="email"],
@@ -542,7 +541,7 @@ form[name="registration_form"] {
 }
 
 .form_login_wrapper form h3,
-.form_register_title{
+.form_register_title {
 	line-height: 0.7;
 	font-size: 28px;
 	color: #f5bf42;
@@ -555,61 +554,105 @@ form[name="registration_form"] {
 	border-radius: 0px !important;
 }
 
-.secondary_cta{
+.secondary_cta {
 	color: #f5bf42;
-    background-color: #4191ab;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px 20px 10px 20px;
-    text-transform: uppercase;
-    border: none;
+	background-color: #4191ab;
+	text-decoration: none;
+	font-size: 16px;
+	padding: 10px 20px 10px 20px;
+	text-transform: uppercase;
+	border: none;
 }
 
 .form_login_wrapper a,
-.form_register_wrapper a{
+.form_register_wrapper a {
 	color: #4191ab;
 	font-size: 14px;
 }
 
-
-
 .form_login_wrapper form input[name="email"],
-.form_login_wrapper form input[name="name"]
-{
+.form_login_wrapper form input[name="name"] {
 	margin-bottom: 20px;
 }
 
-
 /* single_page */
 
-.section_single_product{
+.section_single_product {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	/* grid-template-rows: 200px; */
 	gap: 0px 0px;
 	grid-auto-flow: row;
-	grid-template-areas:
-		"images . text";
-	width: 100%;
-	padding: 0 70px;
+	grid-template-areas: "images text";
+	/* width: 70%; */
+	padding: 70px 70px;
 }
 
-.section_single_product_left{
+.section_single_product_left {
 	grid-area: images;
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
 }
 
-.section_single_product_right{
+.section_single_product_right {
 	grid-area: text;
+	position: relative;
+    left: -100px;
 }
 
-.section_single_product_left_single{
-
+.section_single_product_left_single {
+	width: 400px;
+	align-self: center;
+}
+.section_single_product_left_single img {
+	height: 400px;
+	width: 100%;
 }
 
-.section_single_product_left_multiple{
+.section_single_product_left_multiple img {
+	width: 80px;
+	height: 80px;
+}
+
+.section_single_product_left_multiple {
 	display: flex;
 	flex-direction: row;
-	gap: 20px;
+	width: 400px;
+	justify-content: space-between;
+	align-self: center;
+}
+
+.produit_single_spec {
+	display: flex;
+	flex-direction: column;
+	color: #245471;
+}
+
+.produit_single_details {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.produit_single_title {
+	display: flex;
+	gap: 50px;
+}
+
+.produit_single_tag {
+	align-self: center;
+	padding: 6px 25px 6px 25px;
+	background-color: #f5bf42;
+	color: #4191ab;
+}
+
+.produit_single_price{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.produit_single_description{
+	margin-top: 15px;
+	border-top: 1px solid #f5bf42;
+    padding-top: 10px;
 }
