@@ -8,10 +8,9 @@
 				<img src="{{ article.pictures[0] }}" alt="">
 			</div>
 			<div class="section_single_product_left_multiple">
-				<img src="{{ article.pictures[0] }}" alt="">
-				<img src="{{ article.pictures[0] }}" alt="">
-				<img src="{{ article.pictures[0] }}" alt="">
-				<img src="{{ article.pictures[0] }}" alt="">
+				{% for picture in article.pictures %}
+					<img src="{{ picture }}" alt="">
+				{% endfor %}
 			</div>
 		</div>
 		<div class="section_single_product_right">
@@ -50,7 +49,7 @@
 					<div class="question_user">
 						<img src="{{ question.idUSer.avatar}} " height="50x" width="50px" loading="lazy">
 						<span>
-							{{ question.idUSer.nickName}}
+							<a href="/user/{{question.idUser}}">{{ question.idUSer.nickName}}</a>
 						</span>
 					</div>
 					<div class="question_user_question">
@@ -69,7 +68,7 @@
 						<div class="reponse_user">
 							<img src="{{ answer.idUSer.avatar}} " height="50x" width="50px" loading="lazy">
 							<span>
-								{{ answer.idUSer.nickName}}
+								<a href="/user/{{anwser.idUser}}">{{ answer.idUSer.nickName}}</a>
 							</span>
 						</div>
 						<div class="reponse_user_reponse_wrapper">
