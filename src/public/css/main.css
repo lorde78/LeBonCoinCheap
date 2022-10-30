@@ -656,3 +656,41 @@ form[name="registration_form"] {
 	border-top: 1px solid #f5bf42;
     padding-top: 10px;
 }
+
+.section_qa{
+	display: flex;
+	flex-direction: column;
+	padding: 0 70px;
+}
+
+.section_qa_heading{
+	display: flex;
+	justify-content: center;
+    border-top: 1px solid #f5bf42;
+    padding: 20px 0;
+}
+
+.section_qa_heading h4{
+	margin-bottom: 0px;
+    line-height: 0.7;
+    margin-left: 20px;
+    font-size: 28px;
+    align-self: end;
+    color: #245471;
+}
+
+.question{
+	border: 1px solid #f5bf42;
+	padding: 10px;
+}
+
+.question_user{
+	display: flex;
+}
+
+.question_user span{
+	align-self: flex-end;
+    line-height: 0.8;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
