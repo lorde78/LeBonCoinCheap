@@ -479,7 +479,8 @@ footer a:hover {
 /* registration */
 
 
-.form_login_wrapper{
+.form_login_wrapper,
+form[name="registration_form"] {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -489,7 +490,7 @@ footer a:hover {
 }
 
 .form_login_wrapper form::after,
-.form_register_wrapper form::after {
+#registration_form::after {
 	box-shadow: 15px 15px #d9d9d9;
 	content: "";
 	position: absolute;
@@ -501,7 +502,7 @@ footer a:hover {
 }
 
 .form_login_wrapper form,
-.form_register_wrapper form {
+#registration_form {
 	padding: 50px 100px 100px 100px;
 	align-self: center;
 	display: flex;
@@ -521,9 +522,8 @@ footer a:hover {
 	height: 200px;
 }
 
-
 .form_login_wrapper a,
-.form_register_wrapper a {
+#registration_form a {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -542,7 +542,7 @@ footer a:hover {
 }
 
 .form_login_wrapper form h3,
-.form_register_wrapper form h3 {
+.form_register_title{
 	line-height: 0.7;
 	font-size: 28px;
 	color: #f5bf42;
@@ -579,3 +579,37 @@ footer a:hover {
 	margin-bottom: 20px;
 }
 
+
+/* single_page */
+
+.section_single_product{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	/* grid-template-rows: 200px; */
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"images . text";
+	width: 100%;
+	padding: 0 70px;
+}
+
+.section_single_product_left{
+	grid-area: images;
+	display: flex;
+	flex-direction: column;
+}
+
+.section_single_product_right{
+	grid-area: text;
+}
+
+.section_single_product_left_single{
+
+}
+
+.section_single_product_left_multiple{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
